@@ -1,6 +1,7 @@
 import NProgress from 'nprogress';
 
 NProgress.configure({showSpinner: false});
+
 /**
  * 组件开始请求，可以用来显示loading
  */

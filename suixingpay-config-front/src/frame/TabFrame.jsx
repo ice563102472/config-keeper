@@ -12,8 +12,12 @@ import {getCurrentLoginUser} from '../commons';
 
 const TabPane = Tabs.TabPane;
 const IFRAME_TYPE = 'iframe';
+
 @event()
 export class LayoutComponent extends Component {
+
+    activeKey = 0;
+    tabs = {};
 
     componentWillMount() {
         const {actions, $on} = this.props;
@@ -36,6 +40,7 @@ export class LayoutComponent extends Component {
         const path = currentTab.path;
         this.props.router.push(path);
     };
+
     handleTabEdit = (targetKey, action) => {
         if (action === 'remove') {
             // 最后一个不删除
@@ -60,9 +65,6 @@ export class LayoutComponent extends Component {
             Reflect.deleteProperty(this.tabs, targetKey);
         }
     };
-    activeKey = 0;
-    tabs = {};
-
 
     render() {
         const {sideBarCollapsed, showSideBar, showPageHeader, currentSideBarMenuNode, currentTopMenuNode} = this.props;
@@ -130,7 +132,8 @@ export class LayoutComponent extends Component {
                 <Header/>
                 <SideBar/>
                 <PageHeader top={headerHeight + tabHeight}/>
-                <div id="frame-content" className="frame-content" style={{paddingLeft, paddingTop, ...iframeContentStyle}}>
+                <div id="frame-content" className="frame-content"
+                     style={{paddingLeft, paddingTop, ...iframeContentStyle}}>
                     {
                         Object.keys(this.tabs).map(k => {
                             const item = this.tabs[k];

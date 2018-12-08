@@ -24,6 +24,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 /**
+ * 应用配置
  * @author: qiujiayu[qiu_jy@suixingpay.com]
  * @date: 2017年9月8日 下午6:31:44
  * @version: V1.0

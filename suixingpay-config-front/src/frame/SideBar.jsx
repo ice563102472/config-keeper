@@ -7,7 +7,6 @@ import {getScrollBarWidth} from 'sx-ui/utils';
 import Utils from '../commons/utils';
 import connectComponent from '../redux/store/connectComponent';
 import logoPic from './lg_logo.png';
-import {browserHistory} from 'react-router';
 
 
 const SubMenu = Menu.SubMenu;
@@ -42,7 +41,8 @@ class LayoutComponent extends Component {
                 let title = <span><FontIcon type={icon}/>{text}</span>;
 
                 if (sideBarCollapsed && isTop) {
-                    title = <span><FontIcon type={icon}/><span className="side-bar-top-menu-text">{text}</span></span>;
+                    title = <span><FontIcon type={icon}/><span
+                        className="side-bar-top-menu-text">{text}</span></span>;
                 }
 
                 if (children) {
@@ -54,7 +54,9 @@ class LayoutComponent extends Component {
                 }
                 return (
                     <Menu.Item key={key} style={{paddingLeft: 20}}>
-                        <Link to={path} onClick={()=>{this.toPageLink()}}>
+                        <Link to={path} onClick={() => {
+                            this.toPageLink()
+                        }}>
                             {title}
                         </Link>
                     </Menu.Item>
@@ -104,8 +106,9 @@ class LayoutComponent extends Component {
         const path = Utils.getRootUrl().path;
         if (!currentSideBarMenuNode) currentSideBarMenuNode = {};
         return (
-            <div className="frame-side-bar" style={{width: sideBarWidth, display: showSideBar ? 'block' : 'none'}}>
-                <div className="logo" style={{backgroundColor:'#404040'}}>
+            <div className="frame-side-bar"
+                 style={{width: sideBarWidth, display: showSideBar ? 'block' : 'none'}}>
+                <div className="logo" style={{backgroundColor: '#404040'}}>
                     <Link to={path}>
                         {logo}
                     </Link>
@@ -114,7 +117,8 @@ class LayoutComponent extends Component {
                     </div>
                 </div>
                 <div className="menu-outer" style={{overflow: outerOverFlow}}>
-                    <div className="menu-inner" style={{width: innerWidth, overflowY: innerOverFlow}}>
+                    <div className="menu-inner"
+                         style={{width: innerWidth, overflowY: innerOverFlow}}>
                         <Menu
                             theme="dark"
                             style={{display: sideBarCollapsed ? 'none' : 'block'}}

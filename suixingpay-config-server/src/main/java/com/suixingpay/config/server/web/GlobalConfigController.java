@@ -52,8 +52,8 @@ public class GlobalConfigController {
     @GetMapping
     @ApiOperation(value = "配置列表", notes = "配置列表")
     public ResponseDTO<List<GlobalConfigDO>> list(HttpServletRequest request) {
-        UserDO userDO = SecurityUtil.getSessionUser(request).get();
-        List<GlobalConfigDO> list = this.globalConfigService.listByUser(userDO);
+        UserDO               userDO = SecurityUtil.getSessionUser(request).get();
+        List<GlobalConfigDO> list   = this.globalConfigService.listByUser(userDO);
         return new ResponseDTO<List<GlobalConfigDO>>(list);
     }
 
@@ -61,7 +61,9 @@ public class GlobalConfigController {
     @ApiOperation(value = "详情", notes = "详情")
     public ResponseDTO<GlobalConfigDO> detail(HttpServletRequest request, //
                                               @ApiParam(name = "profile", value = "profile", required = true) //
-                                              @PathVariable("profile") @Valid @NotBlank(message = "profile不能为空") String profile) {
+                                              @PathVariable("profile") @Valid @NotBlank(message = "profile不能为空")
+                                                      String profile
+                                             ) {
         Optional<UserDO> user = SecurityUtil.getSessionUser(request);
         userGlobalConfigRoleService.checkHasRole(user.get(), profile);
         GlobalConfigDO globalConfigDO = this.globalConfigService.getByProfile(profile);
@@ -71,7 +73,8 @@ public class GlobalConfigController {
     @PostMapping()
     @ApiOperation(value = "添加配置", notes = "添加配置")
     public ResponseDTO<Void> addGlobalConfig(HttpServletRequest request, //
-                                             @RequestBody @Valid GlobalConfigForm form) throws Exception {
+                                             @RequestBody @Valid GlobalConfigForm form
+                                            ) throws Exception {
         GlobalConfigDO globalConfigDO = form.convertToGlobalConfigDO();
         try {
             Map<String, Object> source = PropertySourceUtil.toPropertySource(globalConfigDO);
@@ -94,7 +97,8 @@ public class GlobalConfigController {
     @PutMapping()
     @ApiOperation(value = "修改配置", notes = "修改配置")
     public ResponseDTO<Void> updateGlobalConfig(HttpServletRequest request, //
-                                                @RequestBody @Valid GlobalConfigForm form) throws Exception {
+                                                @RequestBody @Valid GlobalConfigForm form
+                                               ) throws Exception {
         GlobalConfigDO globalConfigDO = form.convertToGlobalConfigDO();
         try {
             Map<String, Object> source = PropertySourceUtil.toPropertySource(globalConfigDO);
@@ -115,15 +119,15 @@ public class GlobalConfigController {
     @ApiOperation(value = "历史记录替换当前配置", notes = "历史记录替换当前配置")
     public ResponseDTO<Void> replaceGlobalConfig(HttpServletRequest request, //
                                                  @ApiParam(name = "id", value = "历史数据id", required = true) //
-                                                 @PathVariable("id") @Valid @NotNull(message = "历史数据id不能为空") Long id) throws Exception {
+                                                 @PathVariable("id") @Valid @NotNull(message = "历史数据id不能为空") Long id
+                                                ) throws Exception {
 
-        GlobalConfigDO globalConfigDO = new GlobalConfigDO();
+        GlobalConfigDO    globalConfigDO    = new GlobalConfigDO();
         GlobalConfigLogDO globalConfigLogDO = globalConfigLogService.getById(id);
         // 拼装信息
         Optional<UserDO> user = SecurityUtil.getSessionUser(request);
         globalConfigDO.setUser(user.get());
-        globalConfigDO
-                .setMemo(String.format("%s;从 %d 版本回退！", globalConfigLogDO.getMemo(), globalConfigLogDO.getVersion()));
+        globalConfigDO.setMemo(String.format("%s;从 %d 版本回退！", globalConfigLogDO.getMemo(), globalConfigLogDO.getVersion()));
         globalConfigDO.setProfile(globalConfigLogDO.getProfile());
         globalConfigDO.setPropertySource(globalConfigLogDO.getPropertySource());
         globalConfigDO.setSourceType(globalConfigLogDO.getSourceType());
@@ -160,8 +164,8 @@ public class GlobalConfigController {
     @GetMapping("/profiles")
     @ApiOperation(value = "获取当前用户可管理的Profiles", notes = "获取当前用户可管理的Profiles")
     public ResponseDTO<List<ProfileDO>> myProfiles(HttpServletRequest request) {
-        Optional<UserDO> user = SecurityUtil.getSessionUser(request);
-        List<ProfileDO> profileDOs = userGlobalConfigRoleService.getProfilesByUser(user.get());
+        Optional<UserDO> user       = SecurityUtil.getSessionUser(request);
+        List<ProfileDO>  profileDOs = userGlobalConfigRoleService.getProfilesByUser(user.get());
         return new ResponseDTO<List<ProfileDO>>(profileDOs);
     }
 }

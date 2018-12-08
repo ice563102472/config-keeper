@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.suixingpay.config-keeper</groupId>
     <artifactId>suixingpay-config-server</artifactId>
@@ -122,7 +123,8 @@
                     <yarnVersion>v1.9.4</yarnVersion>
                     <!-- 下载地址欺骗 实际执行构建服务器 -->
                     <nodeDownloadRoot>http://nodejs.org/dist/</nodeDownloadRoot>
-                    <yarnDownloadRoot>http://github.com/yarnpkg/yarn/releases/download/</yarnDownloadRoot>
+                    <yarnDownloadRoot>http://github.com/yarnpkg/yarn/releases/download/
+                    </yarnDownloadRoot>
                     <workingDirectory>../suixingpay-config-front</workingDirectory>
                 </configuration>
                 <executions>
@@ -148,7 +150,8 @@
                             <goal>yarn</goal>
                         </goals>
                         <configuration>
-                            <arguments>config set registry https://registry.npm.taobao.org</arguments>
+                            <arguments>config set registry https://registry.npm.taobao.org
+                            </arguments>
                         </configuration>
                         <phase>generate-resources</phase>
                     </execution>
@@ -194,7 +197,8 @@
                         </goals>
                         <configuration>
                             <encoding>utf-8</encoding>
-                            <outputDirectory>${project.build.directory}/classes/static</outputDirectory>
+                            <outputDirectory>${project.build.directory}/classes/static
+                            </outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>../suixingpay-config-front/public</directory>
@@ -211,6 +215,20 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.suixingpay.config.server.ConfigServerApplication</mainClass>
+                    <fork>true</fork><!-- 如果没有该项配置，肯呢个devtools不会起作用，即应用不会restart -->
+                    <jvmArguments>
+                        -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8081
+                    </jvmArguments>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

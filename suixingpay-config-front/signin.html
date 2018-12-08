@@ -21,9 +21,9 @@
     <meta content="_csrf" name="csrf-param">
     <meta content="<%= htmlWebpackPlugin.options.csrf %>" name="csrf-token">
     <script language="javascript" src="static/js/jquery.min.js"></script>
-    <link rel="stylesheet" href="./static/login/bootstrap.min.css">
-    <link rel="stylesheet" href="./static/login/animate.css">
-    <link rel="stylesheet" href="./static/login/style.css">
+    <link href="./static/login/bootstrap.min.css" rel="stylesheet">
+    <link href="./static/login/animate.css" rel="stylesheet">
+    <link href="./static/login/style.css" rel="stylesheet">
     <script>
         function keyLogin() {
             if (event.keyCode == 13)
@@ -43,22 +43,27 @@
         <!--<p>Login in. To see it in action.</p>-->
         <div class="login-content">
             <h3 class="text-white m-t-none" style="font-size:20px;">用户登录</h3>
-            <form id="loginForm" class="m-t" role="form">
+            <form class="m-t" id="loginForm" role="form">
                 <div class="form-group">
-                    <input type="text" id="name" placeholder="请输入登录名" class="login-input" required autofocus>
+                    <input autofocus class="login-input" id="name" placeholder="请输入登录名" required
+                           type="text">
                 </div>
                 <div class="form-group">
-                    <input type="password" id="pass" name="pass" class="login-input" placeholder="请输入密码" required>
+                    <input class="login-input" id="pass" name="pass" placeholder="请输入密码"
+                           required type="password">
                 </div>
                 <div class="form-group login-flex">
-                    <input type="text" id="code" placeholder="请输入验证码" class="login-input code-input" required>
+                    <input class="login-input code-input" id="code" placeholder="请输入验证码" required
+                           type="text">
                     <span class="code-info">
-                    <img id="codeimg" width="100%" height="100%" src=""/>
+                    <img height="100%" id="codeimg" src="" width="100%"/>
                 </span>
                 </div>
                 <!--<button type="submit" class="btn btn-primary block full-width m-b">Login</button>-->
-                <div class="error" style="color: red;clear: both" id="login-error"></div>
-                <div class="btn btn-primary block full-width m-b" id="login-btn" style="clear: both">登录</div>
+                <div class="error" id="login-error" style="color: red;clear: both"></div>
+                <div class="btn btn-primary block full-width m-b" id="login-btn"
+                     style="clear: both">登录
+                </div>
             </form>
         </div>
         <p class="m-t">

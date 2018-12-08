@@ -85,8 +85,8 @@ function getRoutePath(file) {
 
 function getPathsAndPathNames(sourceFilePath, targetFileName, filter) {
     filter = filter || function () {
-            return true
-        };
+        return true
+    };
     const paths = [];
     const pathNames = [];
     const files = glob.sync(sourceFilePath, {ignore: config.routesIgnore});

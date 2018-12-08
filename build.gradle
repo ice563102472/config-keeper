@@ -2,7 +2,7 @@ buildscript {
     ext {
         sxGradleHome = "https://github.com/sxfad/gradle-scripts/raw/master/"
         REPOSITORY_HOME = 'http://maven.aliyun.com' // maven需要改为公司内部的仓库
-        REPOSITORY_URL =  REPOSITORY_HOME + "/nexus/content/groups/public"
+        REPOSITORY_URL = REPOSITORY_HOME + "/nexus/content/groups/public"
         swaggerVersion = "2.8.0"
     }
     apply from: sxGradleHome + 'spring-cloud-edgware.gradle'
@@ -23,7 +23,7 @@ apply plugin: 'maven'
 allprojects {
 
     repositories {// 使用 mavenCentral()时，将远程的仓库替换为自己搭建的仓库
-        all {ArtifactRepository repo ->
+        all { ArtifactRepository repo ->
             // println repo.url.toString()
             def url = repo.url.toString()
             if (repo instanceof MavenArtifactRepository && (url.startsWith("https://repo1.maven.org/maven2") || url.startsWith('https://jcenter.bintray.com/'))) {

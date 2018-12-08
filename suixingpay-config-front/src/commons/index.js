@@ -1,6 +1,5 @@
-import {promiseAjax, isDev, isPro, isTest, isRC} from 'sx-ui';
-import {session, setItem, getItem, removeItem} from 'sx-ui/utils/storage';
-import devAjaxBaseUrl from '../../local/local-ajax-base-url';
+import {promiseAjax} from 'sx-ui';
+import {getItem, removeItem, session, setItem} from 'sx-ui/utils/storage';
 
 export function isInternalSystem() {
     const runEnv = process.run_env.RUN_ENV;

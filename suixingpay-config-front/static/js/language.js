@@ -9,36 +9,36 @@
     global.prettydiff.language = language;
     language.setlangmode = function language_setlangmode(input) {
         var langmap = {
-            c_cpp     : "javascript",
+            c_cpp: "javascript",
             coldfusion: "markup",
-            csharp    : "javascript",
-            css       : "css",
-            csv       : "csv",
-            dustjs    : "html",
-            ejs       : "html",
-            go        : "html",
+            csharp: "javascript",
+            css: "css",
+            csv: "csv",
+            dustjs: "html",
+            ejs: "html",
+            go: "html",
             handlebars: "html",
-            html      : "html",
-            html_ruby : "html",
-            java      : "javascript",
+            html: "html",
+            html_ruby: "html",
+            java: "javascript",
             javascript: "javascript",
-            json      : "json",
-            jsp       : "markup",
-            jsx       : "javascript",
-            less      : "css",
-            markup    : "markup",
-            php       : "html",
-            qml       : "qml",
-            scss      : "css",
-            swig      : "html",
-            text      : "text",
-            titanium  : "tss",
-            tss       : "tss",
-            twig      : "html",
+            json: "json",
+            jsp: "markup",
+            jsx: "javascript",
+            less: "css",
+            markup: "markup",
+            php: "html",
+            qml: "qml",
+            scss: "css",
+            swig: "html",
+            text: "text",
+            titanium: "tss",
+            tss: "tss",
+            twig: "html",
             typescript: "typescript",
-            velocity  : "velocity",
-            xhtml     : "markup",
-            xml       : "markup"
+            velocity: "velocity",
+            xhtml: "markup",
+            xml: "markup"
         };
         if (typeof input !== "string") {
             return "javascript";
@@ -51,31 +51,31 @@
         }
         return langmap[input];
     };
-    language.nameproper  = function language_nameproper(input) {
+    language.nameproper = function language_nameproper(input) {
         var langmap = {
-            c_cpp     : "C++ (Not yet supported)",
+            c_cpp: "C++ (Not yet supported)",
             coldfusion: "ColdFusion",
-            csharp    : "C#",
-            dustjs    : "Dust.js",
-            ejs       : "EJS Template",
-            elm       : "Elm Template",
-            go        : "Go Lang Template",
+            csharp: "C#",
+            dustjs: "Dust.js",
+            ejs: "EJS Template",
+            elm: "Elm Template",
+            go: "Go Lang Template",
             handlebars: "Handlebars Template",
-            html_ruby : "ERB (Ruby) Template",
-            java      : "Java",
+            html_ruby: "ERB (Ruby) Template",
+            java: "Java",
             javascript: "JavaScript",
-            jsp       : "JSTL (JSP)",
-            jsx       : "React JSX",
-            liquid    : "Liquid Template",
-            markup    : "markup",
-            scss      : "SCSS",
-            text      : "Plain Text",
-            titanium  : "Titanium Stylesheets",
-            tss       : "Titanium Stylesheets",
-            twig      : "HTML TWIG Template",
+            jsp: "JSTL (JSP)",
+            jsx: "React JSX",
+            liquid: "Liquid Template",
+            markup: "markup",
+            scss: "SCSS",
+            text: "Plain Text",
+            titanium: "Titanium Stylesheets",
+            tss: "Titanium Stylesheets",
+            twig: "HTML TWIG Template",
             typescript: "TypeScript",
-            velocity  : "Apache Velocity",
-            volt      : "Volt Template"
+            velocity: "Apache Velocity",
+            volt: "Volt Template"
         };
         if (typeof input !== "string" || langmap[input] === undefined) {
             return input.toUpperCase();
@@ -85,15 +85,15 @@
     // [0] = language value for ace mode [1] = prettydiff language category from [0]
     // [2] = pretty formatting for text output to user
     language.auto = function language_auto(sample, defaultLang) {
-        var b           = [],
-            c           = 0,
-            vartest     = (
+        var b = [],
+            c = 0,
+            vartest = (
                 /(((var)|(let)|(const)|(function)|(import))\s+(\w|\$)+[a-zA-Z0-9]*)/
             ).test(sample),
             finalstatic = (/((((final)|(public)|(private))\s+static)|(static\s+void))/).test(
                 sample
             ),
-            output      = function language_auto_output(langname) {
+            output = function language_auto_output(langname) {
                 if (langname === "unknown") {
                     return [defaultLang, language.setlangmode(defaultLang), "unknown"];
                 }
@@ -105,7 +105,7 @@
                 }
                 return [langname, language.setlangmode(langname), language.nameproper(langname)];
             },
-            cssA        = function language_auto_cssA() {
+            cssA = function language_auto_cssA() {
                 if ((/\$[a-zA-Z]/).test(sample) === true || (/\{\s*(\w|\.|\$|#)+\s*\{/).test(sample) === true) {
                     return output("scss");
                 }
@@ -114,15 +114,15 @@
                 }
                 return output("css");
             },
-            notmarkup   = function language_auto_notmarkup() {
-                var d               = 0,
-                    join            = "",
-                    flaga           = false,
-                    flagb           = false,
-                    publicprivate   = (
+            notmarkup = function language_auto_notmarkup() {
+                var d = 0,
+                    join = "",
+                    flaga = false,
+                    flagb = false,
+                    publicprivate = (
                         /((public)|(private))\s+(static\s+)?(((v|V)oid)|(class)|(final))/
                     ).test(sample),
-                    javascriptA     = function language_auto_notmarkup_javascriptA() {
+                    javascriptA = function language_auto_notmarkup_javascriptA() {
                         if (sample.indexOf("(") > -1 || sample.indexOf("=") > -1 || (sample.indexOf(";") > -1 && sample.indexOf("{") > -1)) {
                             if (vartest === false && ((/\n\s+#region\s/).test(sample) === true || (/\[\w+:/).test(sample) === true)) {
                                 return output("csharp");
@@ -176,17 +176,17 @@
                     if (flaga === false) {
                         if (b[d] === "*" && b[d - 1] === "/") {
                             b[d - 1] = "";
-                            flaga    = true;
+                            flaga = true;
                         } else if (flagb === false && b[d] === "f" && d < c - 6 && b[d + 1] === "i" && b[d + 2] === "l" && b[d + 3] === "t" && b[d + 4] === "e" && b[d + 5] === "r" && b[d + 6] === ":") {
                             flagb = true;
                         }
                     } else if (flaga === true && b[d] === "*" && d !== c - 1 && b[d + 1] === "/") {
-                        flaga    = false;
-                        b[d]     = "";
+                        flaga = false;
+                        b[d] = "";
                         b[d + 1] = "";
                     } else if (flagb === true && b[d] === ";") {
                         flagb = false;
-                        b[d]  = "";
+                        b[d] = "";
                     }
                     if (flaga === true || flagb === true) {
                         b[d] = "";
@@ -216,7 +216,7 @@
                 }
                 return output("unknown");
             },
-            markup      = function language_auto_markup() {
+            markup = function language_auto_markup() {
                 var html = function language_auto_markup_html() {
                     if ((/<%\s*\}/).test(sample) === true) {
                         return output("ejs");

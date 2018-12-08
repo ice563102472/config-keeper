@@ -19,7 +19,7 @@ module.exports = merge(baseWebpackConfig, {
         publicPath: config.dev.assetsPublicPath,
         filename: '[name].js',
     },
-    devtool:'source-map',
+    devtool: 'source-map',
     module: {
         rules: [
             {

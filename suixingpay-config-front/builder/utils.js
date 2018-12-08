@@ -18,8 +18,8 @@ function assetsPath(_path) {
  */
 function getImportsAndModules(sourceFilePath, targetFileName, filter, star) {
     filter = filter || function () {
-            return true
-        };
+        return true
+    };
     const imports = [];
     const modules = [];
     const files = glob.sync(sourceFilePath, {ignore: config.routesIgnore});
@@ -88,6 +88,7 @@ function getPathName(pathName) {
     // pathName = pathName.replace('../', '');
     return pathName;
 }
+
 /**
  * 根据文件的相对路径，生成moduleName
  * @param pathName
@@ -147,6 +148,7 @@ function getComponentString(componentPath) {
         + "});"
         + "},";
 }
+
 /**
  * 获取路由异步加载控制所需的import字符串
  * @returns {string}
@@ -163,6 +165,7 @@ function getRouteAddtionsImportString() {
         + "import {startFetchingComponent, endFetchingComponent, shouldComponentMount} from '" + routeUtilsPath + "';"
         + '\n\n';
 }
+
 exports.getRouteAddtionsImportString = getRouteAddtionsImportString;
 exports.getComponentString = getComponentString;
 exports.assetsPath = assetsPath;

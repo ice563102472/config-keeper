@@ -33,14 +33,14 @@ public class ApplicationConfigQueryForm {
 
     public ApplicationConfigCondition convertToApplicationConfigCondition() {
         String searchKey = applicationName; // 模糊关键字
-        String applicationName1 = null; // 完整的应用名
+        String realApplicationName = null; // 完整的应用名
         if (null != applicationName && applicationName.length() > 0) {
             int beginInd = applicationName.indexOf("(");
             int endInd = applicationName.indexOf(")");
             if (beginInd != -1 && beginInd > 0) {
                 if (endInd - beginInd > 1) {
                     // 如果括号中有内容，则是根据应用名，完全匹配查询，不是模糊匹配
-                    applicationName1 = applicationName.substring(beginInd + 1, endInd);
+                    realApplicationName = applicationName.substring(beginInd + 1, endInd);
                     searchKey = null;
                 } else {
                     searchKey = applicationName.substring(0, beginInd);
@@ -48,7 +48,7 @@ public class ApplicationConfigQueryForm {
             }
         }
         ApplicationDO applicationDO = new ApplicationDO();
-        applicationDO.setName(applicationName1);
+        applicationDO.setName(realApplicationName);
 
         ProfileDO profileDO = new ProfileDO();
         profileDO.setProfile(profileName);

@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
+ * 用户鉴权登录登出接口
  * @author: qiujiayu[qiu_jy@suixingpay.com]
  * @date: 2017年10月16日 下午6:09:33
  * @version: V1.0
@@ -50,6 +51,7 @@ public class AuthController {
     @Autowired
     public KaptchaUtil kaptchaUtil;
 
+    //TODO:不知道applicationName作用是什么
     @Value("${spring.application.name}")
     private String applicationName;
 
@@ -59,9 +61,11 @@ public class AuthController {
         if (!kaptchaUtil.check(form.getKey(), form.getCode())) {
             return res.addErrorMessage("验证码错误");
         }
+        //TODO:层次处理不清晰
         UserDO user = userService.getByName(form.getUsername());
 
         if (null == user) {
+            //TODO:处理多个异常的情况
             return res.addErrorMessage(LOGIN_FAIL_MSG);
         }
         if (!user.getPassword().equals(PasswordUtil.getMd5Password(form.getPassword()))) {
@@ -98,6 +102,11 @@ public class AuthController {
         return new ResponseDTO<UserDO>(userDO);
     }
 
+    /**
+     * 用户登录时获取用户信息
+     * @param request
+     * @return
+     */
     @GetMapping("/getMenu")
     public ResponseDTO<List<MenuDO>> getMenu(HttpServletRequest request) {
         UserDO userDO = SecurityUtil.getSessionUser(request).get();

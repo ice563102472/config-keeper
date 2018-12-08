@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {Menu, Popconfirm} from 'antd';
 import classNames from 'classnames';
 import {FontIcon, UserAvatar} from 'sx-ui/antd';
-import {Link, browserHistory} from 'react-router';
+import {Link} from 'react-router';
 import {ajax} from 'sx-ui';
-import {logout, getCurrentLoginUser} from '../commons';
+import {getCurrentLoginUser, logout} from '../commons';
 import connectComponent from '../redux/store/connectComponent';
 import {getFirstValue} from 'sx-ui/utils/tree-utils';
 import Pass from '../pages/system/profile/Pass';
@@ -64,7 +64,7 @@ class LayoutComponent extends Component {
     }
 
     render() {
-        const {currentTopMenuNode= {}, sideBarCollapsed, showSideBar} = this.props;
+        const {currentTopMenuNode = {}, sideBarCollapsed, showSideBar} = this.props;
         const frameHeaderClass = classNames({
             'side-bar-collapsed': sideBarCollapsed,
             'side-bar-hidden': !showSideBar,
@@ -91,7 +91,9 @@ class LayoutComponent extends Component {
                         <UserAvatar user={user}/>
                         <span>{user.name}</span>
                     </div>
-                    {this.state.clickPassword ? <Pass test={this.test} clickPassword={this.state.clickPassword} handleCancel={this.handleCancel}/> : ''}
+                    {this.state.clickPassword ?
+                        <Pass test={this.test} clickPassword={this.state.clickPassword}
+                              handleCancel={this.handleCancel}/> : ''}
                     <Popconfirm
                         onVisibleChange={this.handleLogoutPopVisibleChange}
                         placement="bottomRight"

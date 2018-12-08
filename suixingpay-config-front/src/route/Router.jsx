@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {Router, browserHistory} from 'react-router';
+import {browserHistory, Router} from 'react-router';
 import allPageRoutes from '../all-routes';
 import connectComponent from '../redux/store/connectComponent.js';
 import pageRoutes from '../page-routes';
 import * as Frame from '../frame/Frame';
 import * as Home from '../pages/home/Home';
 import * as Error404 from '../pages/error/Error404';
-import {toLogin, getCurrentLoginUser} from '../commons';
+import {getCurrentLoginUser, toLogin} from '../commons';
 
 const currentLoginUser = getCurrentLoginUser();
 

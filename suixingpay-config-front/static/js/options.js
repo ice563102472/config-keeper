@@ -32,275 +32,275 @@
         functions: {}
     };
     global.prettydiff.options = options;
-    options.functions.definitions   = {
-        apacheVelocity : {
-            type      : "boolean",
+    options.functions.definitions = {
+        apacheVelocity: {
+            type: "boolean",
             definition: "Provides support for Apache Velocity template language.",
-            default   : false
+            default: false
         },
-        api            : {
-            type      : "string",
+        api: {
+            type: "string",
             definition: "An enternal option to help identify environment specific needs.",
-            default   : false
+            default: false
         },
-        attributetoken : {
-            type      : "boolean",
+        attributetoken: {
+            type: "boolean",
             definition: "Provides markups attributes as separate tokens in the parse table of mode pars" +
-                    "e, otherwise attributes are a data property of their respective element.",
-            default   : false
+                "e, otherwise attributes are a data property of their respective element.",
+            default: false
         },
-        brace_style    : {
-            type      : "string",
+        brace_style: {
+            type: "string",
             definition: "Emulates JSBeautify's brace_style option using existing Pretty Diff options.",
-            values    : [
+            values: [
                 "collapse", "collapse-preserve-inline", "expand", "none"
             ],
-            default   : "none"
+            default: "none"
         },
-        braceline      : {
-            type      : "boolean",
+        braceline: {
+            type: "boolean",
             definition: "If true a new line character will be inserted after opening curly braces and b" +
-                    "efore closing curly braces.",
-            default   : false
+                "efore closing curly braces.",
+            default: false
         },
-        bracepadding   : {
-            type      : "boolean",
+        bracepadding: {
+            type: "boolean",
             definition: "Inserts a space after the start of a contain and before the end of the contain" +
-                    "er in JavaScript if the contents of that container are not indented; such as: " +
-                    "conditions, function arguments, and escaped sequences of template strings.",
-            default   : false
+                "er in JavaScript if the contents of that container are not indented; such as: " +
+                "conditions, function arguments, and escaped sequences of template strings.",
+            default: false
         },
-        braces         : {
-            type      : "string",
+        braces: {
+            type: "string",
             definition: "If lang is 'javascript' and mode is 'beautify' this determines if opening curl" +
-                    "y braces will exist on the same line as their condition or be forced onto a ne" +
-                    "w line.",
-            values    : [
+                "y braces will exist on the same line as their condition or be forced onto a ne" +
+                "w line.",
+            values: [
                 "knr", "allman"
             ],
-            default   : "knr"
+            default: "knr"
         },
-        color          : {
-            type      : "string",
+        color: {
+            type: "string",
             definition: "The color scheme of the reports.",
-            default   : "white",
-            values    : ["canvas", "shadow", "white"]
+            default: "white",
+            values: ["canvas", "shadow", "white"]
         },
-        comments       : {
-            type      : "string",
+        comments: {
+            type: "string",
             definition: "If mode is 'beautify' this will determine whether comments should always start" +
-                    " at position 0 of each line or if comments should be indented according to the" +
-                    " code.",
-            default   : "indent",
-            values    : ["indent", "noindent"]
+                " at position 0 of each line or if comments should be indented according to the" +
+                " code.",
+            default: "indent",
+            values: ["indent", "noindent"]
         },
-        commline       : {
-            type      : "boolean",
+        commline: {
+            type: "boolean",
             definition: "If a blank new line should be forced above comments in markup.",
-            default   : false
+            default: false
         },
-        compressedcss  : {
-            type      : "boolean",
+        compressedcss: {
+            type: "boolean",
             definition: "If CSS should be beautified in a style where the properties and values are min" +
-                    "ifed for faster reading of selectors.",
-            default   : false
+                "ifed for faster reading of selectors.",
+            default: false
         },
-        conditional    : {
-            type      : "boolean",
+        conditional: {
+            type: "boolean",
             definition: "If true then conditional comments used by Internet Explorer are preserved at m" +
-                    "inification of markup.",
-            default   : false
+                "inification of markup.",
+            default: false
         },
-        content        : {
-            type      : "boolean",
+        content: {
+            type: "boolean",
             definition: "If true and mode is 'diff' this will normalize all string literals in JavaScri" +
-                    "pt to 'text' and all content in markup to 'text' so as to eliminate some diffe" +
-                    "rences from the HTML diff report.",
-            default   : false
+                "pt to 'text' and all content in markup to 'text' so as to eliminate some diffe" +
+                "rences from the HTML diff report.",
+            default: false
         },
-        context        : {
-            type      : "number",
+        context: {
+            type: "number",
             definition: "This shortens the diff output by allowing a specified number of equivalent lin" +
-                    "es between each line of difference.",
-            default   : -1
+                "es between each line of difference.",
+            default: -1
         },
-        correct        : {
-            type      : "boolean",
+        correct: {
+            type: "boolean",
             definition: "Automatically correct some sloppiness in JavaScript and markup.",
-            default   : false
+            default: false
         },
-        crlf           : {
-            type      : "boolean",
+        crlf: {
+            type: "boolean",
             definition: "If line termination should be Windows (CRLF) format.  Unix (LF) format is the " +
-                    "default.",
-            default   : false
+                "default.",
+            default: false
         },
-        cssinsertlines : {
-            type      : "boolean",
+        cssinsertlines: {
+            type: "boolean",
             definition: "Inserts new line characters between every CSS code block.",
-            default   : false
+            default: false
         },
-        csvchar        : {
-            type      : "string",
+        csvchar: {
+            type: "string",
             definition: "The character to be used as a separator if lang is 'csv'.  Any string combinat" +
-                    "ion is accepted.",
-            default   : ","
+                "ion is accepted.",
+            default: ","
         },
-        diff           : {
-            type      : "string",
+        diff: {
+            type: "string",
             definition: "The code sample to be compared to 'source' option. This is required if mode is" +
-                    " 'diff'.",
-            default   : ""
+                " 'diff'.",
+            default: ""
         },
-        diffcli        : {
-            type      : "boolean",
+        diffcli: {
+            type: "boolean",
             definition: "If true only text lines of the code differences are returned instead of an HTM" +
-                    "L diff report.",
-            default   : false
+                "L diff report.",
+            default: false
         },
-        diffcomments   : {
-            type      : "boolean",
+        diffcomments: {
+            type: "boolean",
             definition: "If true then comments will be preserved so that both code and comments are com" +
-                    "pared by the diff engine.",
-            default   : false
+                "pared by the diff engine.",
+            default: false
         },
-        difflabel      : {
-            type      : "string",
+        difflabel: {
+            type: "string",
             definition: "This allows for a descriptive label for the diff file code of the diff HTML ou" +
-                    "tput.",
-            default   : "最近版本"
+                "tput.",
+            default: "最近版本"
         },
         diffspaceignore: {
-            type      : "boolean",
+            type: "boolean",
             definition: "If white space only differences should be ignored by the diff tool.",
-            default   : false
+            default: false
         },
-        diffview       : {
-            type      : "string",
+        diffview: {
+            type: "string",
             definition: "This determines whether the diff HTML output should display as a side-by-side " +
-                    "comparison or if the differences should display in a single table column.",
-            values    : [
+                "comparison or if the differences should display in a single table column.",
+            values: [
                 "inline", "sidebyside"
             ],
-            default   : "sidebyside"
+            default: "sidebyside"
         },
-        dustjs         : {
-            type      : "boolean",
+        dustjs: {
+            type: "boolean",
             definition: "If the provided markup code is a Dust.js template.",
-            default   : false
+            default: false
         },
-        elseline       : {
-            type      : "boolean",
+        elseline: {
+            type: "boolean",
             definition: "If elseline is true then the keyword 'else' is forced onto a new line in JavaS" +
-                    "cript beautification.",
-            default   : false
+                "cript beautification.",
+            default: false
         },
-        endcomma       : {
-            type      : "string",
+        endcomma: {
+            type: "string",
             definition: "If there should be a trailing comma in JavaScript arrays and objects. Value \"" +
-                    "multiline\" only applies to modes beautify and diff.",
-            values    : [
+                "multiline\" only applies to modes beautify and diff.",
+            values: [
                 "always", "multiline", "never"
             ],
-            default   : "never"
+            default: "never"
         },
-        endquietly     : {
-            type      : "string",
+        endquietly: {
+            type: "string",
             definition: "A node only option to determine if terminal logging should be allowed or suppr" +
-                    "essed.",
-            values    : [
+                "essed.",
+            values: [
                 "", "log", "quiet"
             ],
-            default   : ""
+            default: ""
         },
         force_attribute: {
-            type      : "boolean",
+            type: "boolean",
             definition: "If all markup attributes should be indented each onto their own line.",
-            default   : false
+            default: false
         },
-        force_indent   : {
-            type      : "boolean",
+        force_indent: {
+            type: "boolean",
             definition: "If lang is 'markup' this will force indentation upon all content and tags with" +
-                    "out regard for the creation of new text nodes.",
-            default   : false
+                "out regard for the creation of new text nodes.",
+            default: false
         },
-        formatArray    : {
-            type      : "string",
+        formatArray: {
+            type: "string",
             definition: "Determines if all JavaScript array indexes should be indented, never indented," +
-                    " or left to the default.",
-            values    : [
+                " or left to the default.",
+            values: [
                 "default", "indent", "inline"
             ],
-            default   : "default"
+            default: "default"
         },
-        formatObject   : {
-            type      : "string",
+        formatObject: {
+            type: "string",
             definition: "Determines if all JavaScript array indexes should be indented, never indented," +
-                    " or left to the default.",
-            values    : [
+                " or left to the default.",
+            values: [
                 "default", "indent", "inline"
             ],
-            default   : "default"
+            default: "default"
         },
-        functionname   : {
-            type      : "boolean",
+        functionname: {
+            type: "boolean",
             definition: "If a space should follow a JavaScript function name.",
-            default   : false
+            default: false
         },
-        help           : {
-            type      : "number",
+        help: {
+            type: "number",
             definition: "A node only option to print documentation to the console. The value determines" +
-                    " where to wrap text.",
-            default   : 80
+                " where to wrap text.",
+            default: 80
         },
-        html           : {
-            type      : "boolean",
+        html: {
+            type: "boolean",
             definition: "If lang is 'markup' this will provide extra support for HTML specific sloppine" +
-                    "ss.",
-            default   : false
+                "ss.",
+            default: false
         },
-        inchar         : {
-            type      : "string",
+        inchar: {
+            type: "string",
             definition: "The string characters to comprise a single indentation. Any string combination" +
-                    " is accepted.",
-            default   : " "
+                " is accepted.",
+            default: " "
         },
-        inlevel        : {
-            type      : "number",
+        inlevel: {
+            type: "number",
             definition: "How much indentation padding should be applied to JavaScript beautification?",
-            default   : 0
+            default: 0
         },
-        insize         : {
-            type      : "number",
+        insize: {
+            type: "number",
             definition: "The number of characters to comprise a single indentation.",
-            default   : 4
+            default: 4
         },
-        jekyll         : {
-            type      : "boolean",
+        jekyll: {
+            type: "boolean",
             definition: "If YAML Jekyll HTML template comments are supported.",
-            default   : false
+            default: false
         },
-        jsscope        : {
-            type      : "string",
+        jsscope: {
+            type: "string",
             definition: "An educational tool to generate HTML output of JavaScript code to identify sco" +
-                    "pe regions and declared references by color.",
-            values    : {
-                none  : "prevents use of this option",
+                "pe regions and declared references by color.",
+            values: {
+                none: "prevents use of this option",
                 report: "generates HTML output that renders in web browsers",
-                html  : "generates HTML output with escaped angle braces and ampersands for embedding a" +
-                        "s code, which is handy in code producing tools"
+                html: "generates HTML output with escaped angle braces and ampersands for embedding a" +
+                    "s code, which is handy in code producing tools"
             },
-            default   : "none"
+            default: "none"
         },
-        jsx            : {
-            type      : "boolean",
+        jsx: {
+            type: "boolean",
             definition: "An internal flag used to identify if a given code sample is React JSX code.",
-            default   : false
+            default: false
         },
-        lang           : {
-            type      : "string",
+        lang: {
+            type: "string",
             definition: "The programming language of the source file.",
-            values    : [
+            values: [
                 "auto",
                 "markup",
                 "javascript",
@@ -309,13 +309,13 @@
                 "csv",
                 "text"
             ],
-            default   : "auto"
+            default: "auto"
         },
-        langdefault    : {
-            type      : "string",
+        langdefault: {
+            type: "string",
             definition: "The fallback option if option 'lang' is set to 'auto' and a language cannot be" +
-                    " detected.",
-            values    : [
+                " detected.",
+            values: [
                 "markup",
                 "javascript",
                 "css",
@@ -323,203 +323,203 @@
                 "csv",
                 "text"
             ],
-            default   : "text"
+            default: "text"
         },
-        listoptions    : {
-            type      : "boolean",
+        listoptions: {
+            type: "boolean",
             definition: "A Node.js only option that writes current option settings to the console.",
-            default   : false
+            default: false
         },
-        methodchain    : {
-            type      : "string",
+        methodchain: {
+            type: "string",
             definition: "Whether consecutive JavaScript methods should be chained onto a single line of" +
-                    " code instead of indented.",
-            values    : [
+                " code instead of indented.",
+            values: [
                 "chain", "indent", "none"
             ],
-            default   : "indent"
+            default: "indent"
         },
-        miniwrap       : {
-            type      : "boolean",
+        miniwrap: {
+            type: "boolean",
             definition: "Whether minified JavaScript should wrap after a specified character width.  Th" +
-                    "is option requires a value from option 'wrap'.",
-            default   : false
+                "is option requires a value from option 'wrap'.",
+            default: false
         },
-        mode           : {
-            type      : "string",
+        mode: {
+            type: "string",
             definition: "The operation to be performed.",
-            values    : {
+            values: {
                 analysis: "returns a code examination report",
                 beautify: "beautifies code and returns a string",
-                diff    : "returns either command line list of differences or an HTML report",
-                minify  : "minifies code and returns a string",
-                parse   : "using option 'parseFormat' returns an object with shallow arrays, a multidimen" +
-                        "sional array, or an HTML report"
+                diff: "returns either command line list of differences or an HTML report",
+                minify: "minifies code and returns a string",
+                parse: "using option 'parseFormat' returns an object with shallow arrays, a multidimen" +
+                    "sional array, or an HTML report"
             },
-            default   : "diff"
+            default: "diff"
         },
-        newline        : {
-            type      : "boolean",
+        newline: {
+            type: "boolean",
             definition: "Insert an empty line at the end of output.",
-            default   : false
+            default: false
         },
-        neverflatten   : {
-            type      : "boolean",
+        neverflatten: {
+            type: "boolean",
             definition: "If destructured lists in JavaScript should never be flattend.",
-            default   : false
+            default: false
         },
-        nocaseindent   : {
-            type      : "boolean",
+        nocaseindent: {
+            type: "boolean",
             definition: "If a case statement should receive the same indentation as the containing swit" +
-                    "ch block.",
-            default   : false
+                "ch block.",
+            default: false
         },
-        nochainindent  : {
-            type      : "boolean",
+        nochainindent: {
+            type: "boolean",
             definition: "If indentation should be prevent of JavaScript method chains broken onto multi" +
-                    "ple lines.",
-            default   : false
+                "ple lines.",
+            default: false
         },
-        nodeasync      : {
-            type      : "boolean",
+        nodeasync: {
+            type: "boolean",
             definition: "An internal option manage processing of multiple files simultanously",
-            default   : false
+            default: false
         },
-        nodeerror      : {
-            type      : "boolean",
+        nodeerror: {
+            type: "boolean",
             definition: "A Node.js only option if parse errors should be written to the console.",
-            default   : false
+            default: false
         },
-        noleadzero     : {
-            type      : "boolean",
+        noleadzero: {
+            type: "boolean",
             definition: "Whether leading 0s in CSS values immediately preceeding a decimal should be re" +
-                    "moved or prevented.",
-            default   : false
+                "moved or prevented.",
+            default: false
         },
-        objsort        : {
-            type      : "string",
+        objsort: {
+            type: "string",
             definition: "Sorts markup attributes and properties by key name in JavaScript and CSS.",
-            values    : [
+            values: [
                 "all", "css", "js", "markup", "none"
             ],
-            default   : "none"
+            default: "none"
         },
-        output         : {
-            type      : "string",
+        output: {
+            type: "string",
             definition: "The path of the directory, if readmethod is value 'directory', or path and nam" +
-                    "e of the file to write the output.  The path will be created or overwritten.",
-            default   : ""
+                "e of the file to write the output.  The path will be created or overwritten.",
+            default: ""
         },
-        parseFormat    : {
-            type      : "string",
+        parseFormat: {
+            type: "string",
             definition: "Determines the output format for 'parse' mode.",
-            values    : {
-                htmltable : "generates a human readable report in the format of an HTML table",
-                parallel  : "returns a series of parallel arrays",
+            values: {
+                htmltable: "generates a human readable report in the format of an HTML table",
+                parallel: "returns a series of parallel arrays",
                 sequential: "returns an array where each index is a child array containing the parsed token" +
-                        " and all descriptive data"
+                    " and all descriptive data"
             },
-            default   : "parallel"
+            default: "parallel"
         },
-        parseSpace     : {
-            type      : "boolean",
+        parseSpace: {
+            type: "boolean",
             definition: "Whether whitespace tokens should be included.",
-            default   : false
+            default: false
         },
-        preserve       : {
-            type      : "number",
+        preserve: {
+            type: "number",
             definition: "The maximum number of empty lines to retain.",
-            default   : 0
+            default: 0
         },
         preserveComment: {
-            type      : "boolean",
+            type: "boolean",
             definition: "Prevent comment reformatting due to option wrap.",
-            default   : false
+            default: false
         },
-        qml            : {
-            type      : "boolean",
+        qml: {
+            type: "boolean",
             definition: "Enables QML syntax support in the jspretty library.",
-            default   : false
+            default: false
         },
-        quote          : {
-            type      : "boolean",
+        quote: {
+            type: "boolean",
             definition: "If true and mode is 'diff' then all single quote characters will be replaced b" +
-                    "y double quote characters in both the source and diff file input so as to elim" +
-                    "inate some differences from the diff report HTML output.",
-            default   : false
+                "y double quote characters in both the source and diff file input so as to elim" +
+                "inate some differences from the diff report HTML output.",
+            default: false
         },
-        quoteConvert   : {
-            type      : "string",
+        quoteConvert: {
+            type: "string",
             definition: "If the quotes of JavaScript strings or markup attributes should be converted t" +
-                    "o single quotes or double quotes.",
-            values    : [
+                "o single quotes or double quotes.",
+            values: [
                 "double", "single", "none"
             ],
-            default   : "none"
+            default: "none"
         },
-        readmethod     : {
-            type      : "string",
+        readmethod: {
+            type: "string",
             definition: "The readmethod determines how Node.js should receive input and output.",
-            values    : {
-                auto        : "changes to value subdirectory, file, or screen depending on source resolution",
-                screen      : "reads from screen and outputs to screen",
-                file        : "reads a file and outputs to a file.  file requires option 'output'",
-                filescreen  : "reads a file and writes to screen",
-                directory   : "process all files in the specified directory only",
+            values: {
+                auto: "changes to value subdirectory, file, or screen depending on source resolution",
+                screen: "reads from screen and outputs to screen",
+                file: "reads a file and outputs to a file.  file requires option 'output'",
+                filescreen: "reads a file and writes to screen",
+                directory: "process all files in the specified directory only",
                 subdirectory: "process all files in a directory and its subdirectories"
             },
-            default   : "auto"
+            default: "auto"
         },
-        selectorlist   : {
-            type      : "boolean",
+        selectorlist: {
+            type: "boolean",
             definition: "If comma separated CSS selectors should be retained on a single line of code.",
-            default   : false
+            default: false
         },
-        semicolon      : {
-            type      : "boolean",
+        semicolon: {
+            type: "boolean",
             definition: "If true and mode is 'diff' and lang is 'javascript' all semicolon characters t" +
-                    "hat immediately preceed any white space containing a new line character will b" +
-                    "e removed so as to elimate some differences from the code comparison.",
-            default   : false
+                "hat immediately preceed any white space containing a new line character will b" +
+                "e removed so as to elimate some differences from the code comparison.",
+            default: false
         },
-        source         : {
-            type      : "string",
+        source: {
+            type: "string",
             definition: "The source code or location for interpretation. This option is required for al" +
-                    "l modes.",
-            default   : ""
+                "l modes.",
+            default: ""
         },
-        sourcelabel    : {
-            type      : "string",
+        sourcelabel: {
+            type: "string",
             definition: "This allows for a descriptive label of the source file code of the diff HTML o" +
-                    "utput.",
-            default   : "Source Sample"
+                "utput.",
+            default: "Source Sample"
         },
-        space          : {
-            type      : "boolean",
+        space: {
+            type: "boolean",
             definition: "Inserts a space following the function keyword for anonymous functions.",
-            default   : true
+            default: true
         },
-        spaceclose     : {
-            type      : "boolean",
+        spaceclose: {
+            type: "boolean",
             definition: "Markup self-closing tags end will end with ' />' instead of '/>'.",
-            default   : false
+            default: false
         },
-        style          : {
-            type      : "string",
+        style: {
+            type: "string",
             definition: "If mode is 'beautify' and lang is 'markup' or 'html' this will determine wheth" +
-                    "er the contents of script and style tags should always start at position 0 of " +
-                    "each line or if such content should be indented starting from the opening scri" +
-                    "pt or style tag.",
-            values    : [
+                "er the contents of script and style tags should always start at position 0 of " +
+                "each line or if such content should be indented starting from the opening scri" +
+                "pt or style tag.",
+            values: [
                 "indent", "noindent"
             ],
-            default   : "indent"
+            default: "indent"
         },
-        styleguide     : {
-            type      : "string",
+        styleguide: {
+            type: "string",
             definition: "Provides a collection of option presets to easily conform to popular JavaScrip" +
-                    "t style guides.",
-            values    : [
+                "t style guides.",
+            values: [
                 "airbnb",
                 "crockford",
                 "google",
@@ -531,95 +531,95 @@
                 "yandex",
                 "none"
             ],
-            default   : "none"
+            default: "none"
         },
-        summaryonly    : {
-            type      : "boolean",
+        summaryonly: {
+            type: "boolean",
             definition: "Node only option to output only number of differences.",
-            default   : false
+            default: false
         },
-        tagmerge       : {
-            type      : "boolean",
+        tagmerge: {
+            type: "boolean",
             definition: "Allows immediately adjacement start and end markup tags of the same name to be" +
-                    " combined into a single self-closing tag.",
-            default   : false
+                " combined into a single self-closing tag.",
+            default: false
         },
-        tagsort        : {
-            type      : "boolean",
+        tagsort: {
+            type: "boolean",
             definition: "Sort child items of each respective markup parent element.",
-            default   : false
+            default: false
         },
-        textpreserve   : {
-            type      : "boolean",
+        textpreserve: {
+            type: "boolean",
             definition: "If text in the provided markup code should be preserved exactly as provided. T" +
-                    "his option eliminates beautification and wrapping of text content.",
-            default   : false
+                "his option eliminates beautification and wrapping of text content.",
+            default: false
         },
-        ternaryline    : {
-            type      : "boolean",
+        ternaryline: {
+            type: "boolean",
             definition: "If ternary operators in JavaScript (? and :) should remain on the same line.",
-            default   : false
+            default: false
         },
-        titanium       : {
-            type      : "boolean",
+        titanium: {
+            type: "boolean",
             definition: "Forces the JavaScript parser to parse Titanium Style Sheets instead of JavaScr" +
-                    "ipt.",
-            default   : false
+                "ipt.",
+            default: false
         },
-        topcoms        : {
-            type      : "boolean",
+        topcoms: {
+            type: "boolean",
             definition: "If mode is 'minify' this determines whether comments above the first line of c" +
-                    "ode should be kept.",
-            default   : false
+                "ode should be kept.",
+            default: false
         },
-        twig           : {
-            type      : "boolean",
+        twig: {
+            type: "boolean",
             definition: "If markuppretty is passing twig tag data to jspretty.",
-            default   : false
+            default: false
         },
-        typescript     : {
-            type      : "boolean",
+        typescript: {
+            type: "boolean",
             definition: "Identifies certain edge cases where TypeScript is in conflict with React JSX r" +
-                    "egarding type generics",
-            default   : false
+                "egarding type generics",
+            default: false
         },
-        unformatted    : {
-            type      : "boolean",
+        unformatted: {
+            type: "boolean",
             definition: "If markup tags should have their insides preserved.",
-            default   : false
+            default: false
         },
-        varword        : {
-            type      : "string",
+        varword: {
+            type: "string",
             definition: "If consecutive JavaScript variables should be merged into a comma separated li" +
-                    "st or if variables in a list should be separated.",
-            values    : [
+                "st or if variables in a list should be separated.",
+            values: [
                 "each", "list", "none"
             ],
-            default   : "none"
+            default: "none"
         },
-        version        : {
-            type      : "boolean",
+        version: {
+            type: "boolean",
             definition: "A Node.js only option to write the version information to the console.",
-            default   : false
+            default: false
         },
-        vertical       : {
-            type      : "string",
+        vertical: {
+            type: "string",
             definition: "If lists of assignments and properties should be vertically aligned.",
-            values    : [
+            values: [
                 "all", "css", "js", "none"
             ],
-            default   : "none"
+            default: "none"
         },
-        wrap           : {
-            type      : "number",
+        wrap: {
+            type: "number",
             definition: "How many characters long text content in markup or strings in JavaScript can b" +
-                    "e before wrapping. A value of 0 turns this feature off. A value of -1 will con" +
-                    "catenate strings in JavaScript if separated by a '+' operator.",
-            default   : 0
+                "e before wrapping. A value of 0 turns this feature off. A value of -1 will con" +
+                "catenate strings in JavaScript if separated by a '+' operator.",
+            default: 0
         }
     };
-    options.functions.default       = function options_default() {
-        var keys     = Object.keys(options.functions.definitions),
+    options.functions.default = function options_default() {
+        var keys = Object.keys(options.functions.definitions),
             populate = function options_default_populate(name) {
                 if (name !== "api" && name !== "diff" && name !== "output" && name !== "source" && name !== "nodeasync" && (options.functions.nodeArgs === undefined || options.functions.nodeArgs[name] === undefined)) {
                     options[name] = options
@@ -633,7 +633,7 @@
     options.functions.versionString = function options__versionString() {
         var dstring = "",
             mstring = 0,
-            month   = [
+            month = [
                 "January",
                 "February",
                 "March",
@@ -657,35 +657,35 @@
             .toString();
         mstring = Number(dstring.slice(2, 4)) - 1;
         return "\u001B[36mVersion\u001B[39m: " + global.prettydiff.edition.version + " " +
-                "\u001B[36mDated\u001B[39m: " + dstring.slice(4, 6) + " " + month[mstring] + " " +
-                "20" + dstring.slice(0, 2);
+            "\u001B[36mDated\u001B[39m: " + dstring.slice(4, 6) + " " + month[mstring] + " " +
+            "20" + dstring.slice(0, 2);
     };
-    options.functions.consolePrint  = function options_consolePrint() {
-        var list      = Object.keys(options.functions.definitions),
-            a         = 0,
-            b         = 0,
-            longest   = 0,
-            len       = list.length,
-            def       = "",
-            name      = "",
-            type      = "",
-            vlist     = [],
-            names     = [],
-            vals      = [],
-            lf        = (options.crlf === true)
+    options.functions.consolePrint = function options_consolePrint() {
+        var list = Object.keys(options.functions.definitions),
+            a = 0,
+            b = 0,
+            longest = 0,
+            len = list.length,
+            def = "",
+            name = "",
+            type = "",
+            vlist = [],
+            names = [],
+            vals = [],
+            lf = (options.crlf === true)
                 ? "\r\n"
                 : "\n",
-            limit     = (options.help === undefined)
+            limit = (options.help === undefined)
                 ? 78
                 : options.help - 2,
             namecolor = function options_colorPrint_namecolor(item) {
                 return "  * \"\u001B[32m" + item.replace("  * \"", "") + "\u001B[39m";
             },
-            vertical  = function options_consolePrint_vertical(items) {
-                var mostest  = 0,
-                    x        = 0,
-                    y        = 0,
-                    leng     = items.length,
+            vertical = function options_consolePrint_vertical(items) {
+                var mostest = 0,
+                    x = 0,
+                    y = 0,
+                    leng = items.length,
                     newitems = [];
                 for (x = 0; x < leng; x = x + 1) {
                     if (items[x].length > mostest) {
@@ -697,21 +697,21 @@
                     newitems.push(items[x]);
                     if (y < mostest) {
                         do {
-                            y           = y + 1;
+                            y = y + 1;
                             newitems[x] = newitems[x] + " ";
                         } while (y < mostest);
                     }
                 }
                 return [newitems, mostest];
             },
-            wrap      = function options_consolePrint_wrap(values) {
-                var start   = true,
+            wrap = function options_consolePrint_wrap(values) {
+                var start = true,
                     wrapper = [],
                     wrappit = function options_consolePrint_wrap_wrappit() {
                         var indent = (values === true && start === false)
-                                ? "     "
-                                : "  ",
-                            c      = limit - indent.length;
+                            ? "     "
+                            : "  ",
+                            c = limit - indent.length;
                         name = name.replace(/^(\s+)/, "");
                         if (name.length < c) {
                             wrapper.push(indent + name);
@@ -740,25 +740,25 @@
                 }
                 return wrapper.join("\n");
             },
-            output    = ["", "\u001B[1mOptions\u001B[22m"];
-        names   = vertical(list);
+            output = ["", "\u001B[1mOptions\u001B[22m"];
+        names = vertical(list);
         longest = names[1];
-        names   = names[0];
-        name    = "  Name";
-        b       = name.length;
+        names = names[0];
+        name = "  Name";
+        b = name.length;
         if (b < longest) {
             do {
-                b    = b + 1;
+                b = b + 1;
                 name = name + " ";
             } while (b < longest);
         }
         name = name + "   - Type    - Default";
         output.push("");
         output.push(name);
-        b    = 0;
+        b = 0;
         name = "";
         do {
-            b    = b + 1;
+            b = b + 1;
             name = name + "-";
         } while (b < limit + 2);
         output.push(name);
@@ -770,7 +770,7 @@
                 .type;
             if (type === "string") {
                 type = "\u001B[33m" + type + "\u001B[39m ";
-                def  = options
+                def = options
                     .functions
                     .definitions[list[a]]
                     .default;
@@ -783,14 +783,14 @@
                 }
             } else if (type === "number") {
                 type = "\u001B[36m" + type + "\u001B[39m ";
-                def  = options
+                def = options
                     .functions
                     .definitions[list[a]]
                     .default
                     .toString();
             } else {
                 type = "\u001B[35m" + type + "\u001B[39m";
-                def  = options
+                def = options
                     .functions
                     .definitions[list[a]]
                     .default
@@ -827,16 +827,16 @@
                 } else {
                     output.push("  \u001B[31mAccepted values:\u001B[39m");
                     vlist = Object.keys(options.functions.definitions[list[a]].values);
-                    vals  = vertical(vlist)[0];
-                    b     = 0;
+                    vals = vertical(vlist)[0];
+                    b = 0;
                     do {
                         vals[b] = vals[b] + " ";
-                        name    = "  * \"" + vals[b].replace(" ", "\"") + " - " + options
+                        name = "  * \"" + vals[b].replace(" ", "\"") + " - " + options
                             .functions
                             .definitions[list[a]]
                             .values[vlist[b]];
-                        name    = wrap(true);
-                        name    = name.replace(/\u0020\u0020\*\u0020"\w+/, namecolor);
+                        name = wrap(true);
+                        name = name.replace(/\u0020\u0020\*\u0020"\w+/, namecolor);
                         output.push(name);
                         b = b + 1;
                     } while (b < vlist.length);
@@ -886,23 +886,23 @@
             .join(lf)
             .replace(/\u001b\[\d+m/g, "");
     };
-    options.functions.pdcomment     = function options_pdcomment() {
-        var comment    = options.source,
-            type       = "source",
-            a          = 0,
-            b          = options.source.length,
-            strl       = 0,
-            strm       = "",
-            c          = -1,
-            build      = [],
-            comma      = -1,
-            g          = 0,
+    options.functions.pdcomment = function options_pdcomment() {
+        var comment = options.source,
+            type = "source",
+            a = 0,
+            b = options.source.length,
+            strl = 0,
+            strm = "",
+            c = -1,
+            build = [],
+            comma = -1,
+            g = 0,
             sourceChar = [],
-            quote      = "",
-            sind       = -1,
-            dind       = -1,
-            ss         = null,
-            sd         = null;
+            quote = "",
+            sind = -1,
+            dind = -1,
+            ss = null,
+            sd = null;
         ss = options
             .source
             .match(/\/\*\s*prettydiff.com/);
@@ -919,7 +919,7 @@
                 sind = options
                     .source
                     .indexOf(strm);
-                c    = sind + strl;
+                c = sind + strl;
             }
         } else {
             strm = ss[0];
@@ -927,7 +927,7 @@
             sind = options
                 .source
                 .indexOf(strm);
-            c    = sind + strl;
+            c = sind + strl;
         }
         if (c < 0) {
             if (sd === null) {
@@ -935,24 +935,24 @@
                     .diff
                     .match(/<\!--+\s*prettydiff.com/);
                 if (sd !== null) {
-                    strm    = sd[0];
-                    strl    = strm.length;
-                    dind    = options
+                    strm = sd[0];
+                    strl = strm.length;
+                    dind = options
                         .diff
                         .indexOf(strm);
-                    c       = dind + strl;
+                    c = dind + strl;
                     comment = options.diff;
-                    type    = "diff";
+                    type = "diff";
                 }
             } else {
-                strm    = sd[0];
-                strl    = strm.length;
-                dind    = options
+                strm = sd[0];
+                strl = strm.length;
+                dind = options
                     .diff
                     .indexOf(strm);
-                c       = dind + strl;
+                c = dind + strl;
                 comment = options.diff;
-                type    = "diff";
+                type = "diff";
             }
         }
         if (c < 0) {
@@ -993,7 +993,7 @@
             }
         }
         comment = sourceChar.join("");
-        b       = comment.length;
+        b = comment.length;
         for (c = 0; c < b; c = c + 1) {
             if ((typeof comment.charAt(c - 1) !== "string" || comment.charAt(c - 1) !== "\\") && (comment.charAt(c) === "\"" || comment.charAt(c) === "'")) {
                 if (quote === "") {
@@ -1004,7 +1004,7 @@
             }
             if (quote === "") {
                 if (comment.charAt(c) === ",") {
-                    g     = comma + 1;
+                    g = comma + 1;
                     comma = c;
                     if ((/(\:\\\s+)$/).test(comment.slice(g, comma)) === true) {
                         build.push(comment.slice(g, comma).replace(/^(\s*)/, "").replace(/:\\/, ":"));
@@ -1014,15 +1014,15 @@
                 }
             }
         }
-        g     = comma + 1;
+        g = comma + 1;
         comma = comment.length;
         if ((/(\:\\\s+)$/).test(comment.slice(g, comma)) === true) {
             build.push(comment.slice(g, comma).replace(/^(\s*)/, "").replace(/:\\/, ":"));
         } else {
             build.push(comment.slice(g, comma).replace(/^(\s*)/, "").replace(/(\s*)$/, ""));
         }
-        quote      = "";
-        b          = build.length;
+        quote = "";
+        b = build.length;
         sourceChar = [];
         for (c = 0; c < b; c = c + 1) {
             a = build[c].length;
@@ -1119,7 +1119,7 @@
                     }
                 } else if (build[c][0] === "typescript" && build[c][1] === "true") {
                     options.typescript = true;
-                    options.lang       = "typescript";
+                    options.lang = "typescript";
                 } else if (build[c][0] === "varword") {
                     if (build[c][1] === "each" || build[c][1] === "list" || build[c][1] === "none") {
                         options.varword = build[c][1];
@@ -1149,7 +1149,7 @@
             }
         }
     };
-    options.functions.validate      = function options_validate(api) {
+    options.functions.validate = function options_validate(api) {
         var braceEscape = function diffview__options_braceEscape(input) {
             return input
                 .replace(/&/g, "&amp;")
@@ -1162,97 +1162,97 @@
                 .default();
         }
         // apacheVelocity - provides support for Apache Velocity markup templates
-        options.apacheVelocity  = (
+        options.apacheVelocity = (
             api.apacheVelocity === true || api.apacheVelocity === "true"
         );
         // determines api source as necessary to make a decision about whether to supply
         // externally needed JS functions to reports
-        options.api             = (api.api === undefined || api.api.length === 0)
+        options.api = (api.api === undefined || api.api.length === 0)
             ? "node"
             : api.api;
         // attributetoken - whether attributes should be represented as token items in
         // the parse table or whether they should be a data properties of their element
-        options.attributetoken  = (
+        options.attributetoken = (
             api.attributetoken === true || api.attributetoken === "true"
         );
         // brace-style - provided to emulate JSBeautify's brace-style option
-        options.brace_style     = (
+        options.brace_style = (
             api.brace_style === "collapse" || api.brace_style === "collapse-preserve-inline" || api.brace_style === "expand"
         )
             ? api.brace_style
             : "none";
         // braceline - should a new line pad the interior of blocks (curly braces) in
         // JavaScript
-        options.braceline       = (api.braceline === true || api.braceline === "true");
+        options.braceline = (api.braceline === true || api.braceline === "true");
         //bracepadding - should curly braces be padded with a space in JavaScript?
-        options.bracepadding    = (
+        options.bracepadding = (
             api.bracepadding === true || api.bracepadding === "true"
         );
         // indent - should JSPretty format JavaScript in the normal KNR style or push
         // curly braces onto a separate line like the "allman" style
-        options.braces          = (
+        options.braces = (
             api.braces === true || api.braces === "true" || api.braces === "allman"
         )
             ? "allman"
             : "knr";
         //color scheme of generated HTML artifacts
-        options.color           = (api.color === "canvas" || api.color === "shadow")
+        options.color = (api.color === "canvas" || api.color === "shadow")
             ? api.color
             : "white";
         //comments - if comments should receive indentation or not
-        options.comments        = (api.comments === "noindent")
+        options.comments = (api.comments === "noindent")
             ? "noindent"
             : ((api.comments === "nocomment")
                 ? "nocomment"
                 : "indent");
         //commline - If in markup a newline should be forced above comments
-        options.commline        = (api.commline === true || api.commline === "true");
+        options.commline = (api.commline === true || api.commline === "true");
         // compressedcss - If the beautified CSS should contain minified properties
-        options.compressedcss   = (
+        options.compressedcss = (
             api.compressedcss === true || api.compressedcss === "true"
         );
         // conditional - should IE conditional comments be preserved during markup
         // minification
-        options.conditional     = (
+        options.conditional = (
             api.conditional === true || api.conditional === "true" || api.html === true
         );
         //content - should content be normalized during a diff operation
-        options.content         = (api.content === true || api.content === "true");
+        options.content = (api.content === true || api.content === "true");
         // context - should the diff report only include the differences, if so then
         // buffered by how many lines of code
-        options.context         = (
+        options.context = (
             isNaN(api.context) === true || api.context === "" || Number(api.context) < 0
         )
             ? -1
             : Number(api.context);
         //correct - should JSPretty make some corrections for sloppy JS
-        options.correct         = (api.correct === true || api.correct === "true");
+        options.correct = (api.correct === true || api.correct === "true");
         //crlf - if output should use \r\n (Windows compatible) for line termination
-        options.crlf            = (api.crlf === true || api.crlf === "true");
+        options.crlf = (api.crlf === true || api.crlf === "true");
         //cssinsertlines = if a new line should be forced between each css block
         options.cssinsertlines = (
             api.cssinsertlines === true || api.cssinsertlines === "true"
         );
         //csvchar - what character should be used as a separator
-        options.csvchar         = (typeof api.csvchar === "string" && api.csvchar.length > 0)
+        options.csvchar = (typeof api.csvchar === "string" && api.csvchar.length > 0)
             ? api.csvchar
             : ",";
         //diff - source code to compare with
-        options.diff            = (
+        options.diff = (
             typeof api.diff === "string" && api.diff.length > 0 && (/^(\s+)$/).test(api.diff) === false
         )
             ? api.diff
             : "";
         // diffcli - if operating from Node.js and set to true diff output will be
         // printed to stdout just like git diff
-        options.diffcli         = (api.diffcli === true || api.diffcli === "true");
+        options.diffcli = (api.diffcli === true || api.diffcli === "true");
         //diffcomments - should comments be included in the diff operation
-        options.diffcomments    = (
+        options.diffcomments = (
             api.diffcomments === true || api.diffcomments === "true"
         );
         //difflabel - a text label to describe the diff code
         var currentId = window.parent.document.getElementById('currentId').defaultValue;
-        options.difflabel       = (
+        options.difflabel = (
             typeof api.difflabel === "string" && api.difflabel.length > 0
         )
             ? braceEscape(api.difflabel)
@@ -1265,16 +1265,16 @@
         // diffview - should the diff report be a single column showing both sources
         // simultaneously "inline" or showing the sources in separate columns
         // "sidebyside"
-        options.diffview        = (api.diffview === "inline")
+        options.diffview = (api.diffview === "inline")
             ? "inline"
             : "sidebyside";
         //dustjs - support for this specific templating scheme
-        options.dustjs          = (api.dustjs === true || api.dustjs === "true");
+        options.dustjs = (api.dustjs === true || api.dustjs === "true");
         //elseline - for the 'else' keyword onto a new line in JavaScript
-        options.elseline        = (api.elseline === true || api.elseline === "true");
+        options.elseline = (api.elseline === true || api.elseline === "true");
         // endcomma - if a trailing comma should be injected at the end of arrays and
         // object literals in JavaScript
-        options.endcomma        = (
+        options.endcomma = (
             api.endcomma === true || api.endcomma === "true" || api.endcomma === "always"
         )
             ? "always"
@@ -1283,7 +1283,7 @@
                 : "never";
         // endquietly - a node only option to prevent writing anything to console as
         // stdout
-        options.endquietly      = (api.endquietly === "log" || api.endquietly === "quiet")
+        options.endquietly = (api.endquietly === "log" || api.endquietly === "quiet")
             ? api.endquietly
             : "";
         // force_attribute - forces indentation of all markup attriubtes
@@ -1292,38 +1292,38 @@
         );
         // force_indent - should markup beautification always force indentation even if
         // disruptive
-        options.force_indent    = (
+        options.force_indent = (
             api.force_indent === true || api.force_indent === "true"
         );
         // formatArray - defines whether JavaScript array keys should be indented or
         // kept on a single line
-        options.formatArray     = (
+        options.formatArray = (
             api.formatArray === "indent" || api.formatArray === "inline"
         )
             ? api.formatArray
             : "default";
         // formatObject - defines whether JavaScript object properties should be
         // indented or kept on a single line
-        options.formatObject    = (
+        options.formatObject = (
             api.formatObject === "indent" || api.formatObject === "inline"
         )
             ? api.formatObject
             : "default";
         // functionname - if a space should occur between a function name and its
         // arguments paren
-        options.functionname    = (
+        options.functionname = (
             api.functionname === true || api.functionname === "true"
         );
-        options.help            = (isNaN(api.help) === true || api.help === "")
+        options.help = (isNaN(api.help) === true || api.help === "")
             ? 80
             : Number(api.help);
         // html - should markup be presumed to be HTML with all the aloppiness HTML
         // allows
-        options.html            = (
+        options.html = (
             api.html === true || api.html === "true" || api.html === "html-yes"
         );
         //inchar - what character(s) should be used to create a single identation
-        options.inchar          = (typeof api.inchar === "string" && api.inchar.length > 0)
+        options.inchar = (typeof api.inchar === "string" && api.inchar.length > 0)
             ? api
                 .inchar
                 .replace(/\\t/g, "\u0009")
@@ -1334,22 +1334,22 @@
             : " ";
         // inlevel - should indentation in JSPretty be buffered with additional
         // indentation?  Useful when supplying code to sites accepting markdown
-        options.inlevel         = (
+        options.inlevel = (
             isNaN(api.inlevel) === true || api.inlevel === "" || Number(api.inlevel) < 1
         )
             ? 0
             : Number(api.inlevel);
         // insize - how many characters from api.inchar should constitute a single
         // indentation
-        options.insize          = (isNaN(api.insize) === true || api.insize === "")
+        options.insize = (isNaN(api.insize) === true || api.insize === "")
             ? 4
             : Number(api.insize);
         // jekyll - If the delimiter "---" should be used to create comments in markup.
-        options.jekyll          = (api.jekyll === true || api.jekyll === "true");
+        options.jekyll = (api.jekyll === true || api.jekyll === "true");
         // jsscope - do you want to enable the jsscope feature of JSPretty?  This
         // feature will output formatted HTML instead of text code showing which
         // variables are declared at which functional depth
-        options.jsscope         = (
+        options.jsscope = (
             api.jsscope === true || api.jsscope === "true" || api.jsscope === "report"
         )
             ? "report"
@@ -1359,9 +1359,9 @@
         // jsx - an internal option that is tripped to true when JSX code is
         // encountered.  This option allows the markuppretty and jspretty parsers know
         // to recursively hand off to each other.
-        options.jsx             = false;
+        options.jsx = false;
         //lang - which programming language will we be analyzing
-        options.lang            = (typeof api.lang === "string" && api.lang !== "auto")
+        options.lang = (typeof api.lang === "string" && api.lang !== "auto")
             ? global
                 .prettydiff
                 .language
@@ -1369,7 +1369,7 @@
             : "auto";
         // langdefault - what language should lang value "auto" resort to when it cannot
         // determine the language
-        options.langdefault     = (typeof api.langdefault === "string")
+        options.langdefault = (typeof api.langdefault === "string")
             ? global
                 .prettydiff
                 .language
@@ -1377,12 +1377,12 @@
             : "text";
         // listoptions - a node only option to output the current options object to the
         // console
-        options.listoptions     = (
+        options.listoptions = (
             api.listoptions === true || api.listoptions === "true" || api.listoptions === "l" || api.listoptions === "list"
         );
         // methodchain - if JavaScript method chains should be strung onto a single line
         // instead of indented
-        options.methodchain     = (
+        options.methodchain = (
             api.methodchain === true || api.methodchain === "true" || api.methodchain === "chain"
         )
             ? "chain"
@@ -1391,63 +1391,63 @@
                 : "indent";
         // miniwrap - when language is JavaScript and mode is 'minify' if option 'jwrap'
         // should be applied to all code
-        options.miniwrap        = (api.miniwrap === true || api.miniwrap === "true");
+        options.miniwrap = (api.miniwrap === true || api.miniwrap === "true");
         //mode - is this a minify, beautify, or diff operation
-        options.mode            = (
+        options.mode = (
             api.mode === "minify" || api.mode === "beautify" || api.mode === "parse" || api.mode === "analysis"
         )
             ? api.mode
             : "diff";
         //newline - Insert an empty line at the end of output.
-        options.newline         = (
+        options.newline = (
             api.newline === true || api.newline === "true"
         );
         //neverflatten - prevent flattening of destructured lists in JavaScript
-        options.neverflatten    = (
+        options.neverflatten = (
             api.neverflatten === true || api.neverflatten === "true"
         );
         //nocaseindent - if a 'case' should be indented to its parent 'switch'
-        options.nocaseindent    = (
+        options.nocaseindent = (
             api.nocaseindent === true || api.nocaseindent === "true"
         );
         // nochainindent - prevent indentation when JavaScript chains of methods are
         // broken onto multiple lines
-        options.nochainindent   = (
+        options.nochainindent = (
             api.nochainindent === true || api.nochainindent === "true"
         );
         // nodeasync - meta data has to be passed in the output for bulk async
         // operations otherwise there is cross-talk, which means prettydiff has to
         // return an array of [data, meta] instead of a single string
-        options.nodeasync       = (api.nodeasync === true || api.nodeasync === "true");
+        options.nodeasync = (api.nodeasync === true || api.nodeasync === "true");
         // nodeerror - nodeonly rule about whether parse errors should be logged to the
         // console
-        options.nodeerror       = (api.nodeerror === true || api.nodeerror === "true");
+        options.nodeerror = (api.nodeerror === true || api.nodeerror === "true");
         // noleadzero - in CSS removes and prevents a run of 0s from appearing
         // immediately before a value's decimal.
-        options.noleadzero      = (api.noleadzero === true || api.noleadzero === "true");
+        options.noleadzero = (api.noleadzero === true || api.noleadzero === "true");
         //objsort will alphabetize object keys in JavaScript
-        options.objsort         = (
+        options.objsort = (
             api.objsort === "all" || api.objsort === "js" || api.objsort === "css" || api.objsort === "markup" || api.objsort === true || api.objsort === "true"
         )
             ? api.objsort
             : "none";
         // output - a node only option of where to write the output into the file system
-        options.output          = (
+        options.output = (
             typeof api.output === "string" && api.output.length > 0 && (/^(\s+)$/).test(api.output) === false
         )
             ? api.output
             : "";
         //parseFormat - determine how the parse tree should be organized and formatted
-        options.parseFormat     = (
+        options.parseFormat = (
             api.parseFormat === "sequential" || api.parseFormat === "htmltable"
         )
             ? api.parseFormat
             : "parallel";
         // parseSpace - whether whitespace tokens between tags should be included in the
         // parse tree output
-        options.parseSpace      = (api.parseSpace === true || api.parseSpace === "true");
+        options.parseSpace = (api.parseSpace === true || api.parseSpace === "true");
         //preserve - should empty lines be preserved in beautify operations of JSPretty?
-        options.preserve        = (function core__optionPreserve() {
+        options.preserve = (function core__optionPreserve() {
             if (api.preserve === 1 || api.preserve === undefined || api.preserve === true || api.preserve === "all" || api.preserve === "js" || api.preserve === "css") {
                 return 1;
             }
@@ -1459,121 +1459,121 @@
         // preserveComment - prevent comment reformatting due to option wrap
         options.preserveComment = (api.preserveComment === true || api.preserveComment === "true");
         // qml - if the language is qml (beautified as JavaScript that looks like CSS)
-        options.qml             = (api.qml === true || api.qml === "true");
+        options.qml = (api.qml === true || api.qml === "true");
         // quoteConvert - convert " to ' (or ' to ") of string literals or markup
         // attributes
-        options.quoteConvert    = (
+        options.quoteConvert = (
             api.quoteConvert === "single" || api.quoteConvert === "double"
         )
             ? api.quoteConvert
             : "none";
         // readmethod - a node only option to determine scope of operations (how to
         // proceeed with source and diff options as text or file system properties)
-        options.readmethod      = (
+        options.readmethod = (
             api.readmethod === "subdirectory" || api.readmethod === "directory" || api.readmethod === "file" || api.readmethod === "filescreen" || api.readmethod === "screen"
         )
             ? api.readmethod
             : "auto";
         //selectorlist - should comma separated CSS selector lists be on one line
-        options.selectorlist    = (
+        options.selectorlist = (
             api.selectorlist === true || api.selectorlist === "true"
         );
         // semicolon - should trailing semicolons be removed during a diff operation to
         // reduce the number of false positive comparisons
-        options.semicolon       = (api.semicolon === true || api.semicolon === "true");
+        options.semicolon = (api.semicolon === true || api.semicolon === "true");
         // source - the source code in minify and beautify operations or "base" code in
         // operations
         var historyId = window.parent.document.getElementById('historyId').defaultValue;
-        options.source          = (
+        options.source = (
             typeof api.source === "string" && api.source.length > 0 && (/^(\s+)$/).test(api.source) === false
         )
             ? api.source
             : "";
         //sourcelabel - a text label to describe the api.source code for the diff report
-        options.sourcelabel     = (
+        options.sourcelabel = (
             typeof api.sourcelabel === "string" && api.sourcelabel.length > 0
         )
             ? braceEscape(api.sourcelabel)
             : "历史版本 (版本号:" + historyId + ")";
         // space - should JSPretty include a space between a function keyword and the
         // next adjacent opening parenthesis character in beautification operations
-        options.space           = (api.space !== false && api.space !== "false");
+        options.space = (api.space !== false && api.space !== "false");
         //spaceclose - If markup self-closing tags should end with " />" instead of "/>"
-        options.spaceclose      = (api.spaceclose === true || api.spaceclose === "true");
+        options.spaceclose = (api.spaceclose === true || api.spaceclose === "true");
         // style - should JavaScript and CSS code receive indentation if embedded inline
         // in markup
-        options.style           = (api.style === "noindent")
+        options.style = (api.style === "noindent")
             ? "noindent"
             : "indent";
         // styleguide - preset of beautification options to bring a JavaScript sample
         // closer to conformance of a given style guide
-        options.styleguide      = (typeof api.styleguide === "string")
+        options.styleguide = (typeof api.styleguide === "string")
             ? api
                 .styleguide
                 .toLowerCase()
                 .replace(/\s+/g, "")
             : "none";
         // summaryonly - node only option to output only the diff summary
-        options.summaryonly     = (api.summaryonly === true || api.summaryonly === "true");
+        options.summaryonly = (api.summaryonly === true || api.summaryonly === "true");
         // tagmerge - Allows combining immediately adjacent start and end tags of the
         // same name into a single self-closing tag:  <a href="home"></a> into
         // <a//href="home"/>
         options.tagmerge = (api.tagmerge === true || api.tagmerge === "true");
         //sort markup child nodes alphabetically
-        options.tagsort         = (api.tagsort === true || api.tagsort === "true");
+        options.tagsort = (api.tagsort === true || api.tagsort === "true");
         // textpreserve - Force the markup beautifier to retain text (white space and
         // all) exactly as provided.
-        options.ternaryline     = (api.ternaryline === true || api.ternaryline === "true");
-        options.textpreserve    = (
+        options.ternaryline = (api.ternaryline === true || api.ternaryline === "true");
+        options.textpreserve = (
             api.textpreserve === true || api.textpreserve === "true"
         );
         // titanium - TSS document support via option, because this is a uniquely
         // modified form of JSON
-        options.titanium        = (api.titanium === true || api.titanium === "true");
+        options.titanium = (api.titanium === true || api.titanium === "true");
         // topcoms - should comments at the top of a JavaScript or CSS source be
         // preserved during minify operations
-        options.topcoms         = (api.topcoms === true || api.topcoms === "true");
+        options.topcoms = (api.topcoms === true || api.topcoms === "true");
         // twig - if markuppretty is passing twig tag data to jspretty
-        options.twig            = (api.twig === true || api.twig === "true");
-        options.typescript      = (api.typescript === true || api.typescript === "true");
+        options.twig = (api.twig === true || api.twig === "true");
+        options.typescript = (api.typescript === true || api.typescript === "true");
         // unformatted - if the internals of markup tags should be preserved
-        options.unformatted     = (api.unformatted === true || api.unformatted === "true");
+        options.unformatted = (api.unformatted === true || api.unformatted === "true");
         // varword - should consecutive variables be merged into a comma separated list
         // or the opposite
-        options.varword         = (api.varword === "each" || api.varword === "list")
+        options.varword = (api.varword === "each" || api.varword === "list")
             ? api.varword
             : "none";
         // version - a node only option to output the version number to command line
-        options.version         = (
+        options.version = (
             api.version === true || api.version === "true" || api.version === "version" || api.version === "v"
         );
         // vertical - whether or not to vertically align lists of assigns in CSS and
         // JavaScript
-        options.vertical        = (
+        options.vertical = (
             api.vertical === "all" || api.vertical === "css" || api.vertical === "js"
         )
             ? api.vertical
             : "none";
         // wrap - in markup beautification should text content wrap after the first
         // complete word up to a certain character length
-        options.wrap            = (
+        options.wrap = (
             isNaN(api.wrap) === true || api.wrap === "" || options.textpreserve === true
         )
             ? 0
             : Number(api.wrap);
-        options.autoval         = ["", "", ""];
+        options.autoval = ["", "", ""];
         if (options.lang === "auto") {
             options.autoval = global
                 .prettydiff
                 .language
                 .auto(options.source, options.langdefault);
-            options.lang    = options.autoval[1];
+            options.lang = options.autoval[1];
         } else if (options.lang === "qml") {
-            options.qml  = true;
+            options.qml = true;
             options.lang = "javascript";
         } else if (options.lang === "velocity") {
             options.apacheVelocity = true;
-            options.lang           = "markup";
+            options.lang = "markup";
         } else if (options.api === "dom") {
             options.autoval = [options.lang, options.lang, options.lang];
         } else {
@@ -1583,7 +1583,7 @@
                 .setlangmode(options.lang);
         }
         if (options.lang === "typescript") {
-            options.lang       = "javascript";
+            options.lang = "javascript";
             options.typescript = true;
         }
         if (options.apacheVelocity === true) {
@@ -1626,11 +1626,11 @@
             options.lang = "markup";
         } else if (options.lang === "tss" || options.lang === "titanium") {
             options.titanium = true;
-            options.lang     = "javscript";
+            options.lang = "javscript";
         }
         if (options.qml === true) {
             options.correct = false;
-            options.jsx     = false;
+            options.jsx = false;
         }
         if (options.mode !== "beautify" && options.mode !== "diff" && options.endcomma === "multiline") {
             options.endcomma = "never";
@@ -1687,8 +1687,8 @@
             .pdcomment();
         return options;
     };
-    options.functions.domops        = function options_domops(id, value, commentString) {
-        var a    = 0,
+    options.functions.domops = function options_domops(id, value, commentString) {
+        var a = 0,
             data = [];
         if (id === "adustno" || id === "bdustno" || id === "ddustno" || id === "mdustno" || id === "pdustno") {
             data = ["dustjs", "false"];
@@ -1995,14 +1995,14 @@
         }
         return commentString;
     };
-    options.functions.node          = function options_node(a) {
-        var b        = 0,
-            c        = a.length,
-            d        = [],
-            e        = [],
-            f        = 0,
-            opts     = {},
-            help     = false,
+    options.functions.node = function options_node(a) {
+        var b = 0,
+            c = a.length,
+            d = [],
+            e = [],
+            f = 0,
+            opts = {},
+            help = false,
             langauto = true;
         for (b = 0; b < c; b = b + 1) {
             e = [];
@@ -2037,7 +2037,7 @@
             .validate(opts);
         return [help, langauto];
     };
-    options.functions.binaryCheck   = (
+    options.functions.binaryCheck = (
         /\u0000|\u0001|\u0002|\u0003|\u0004|\u0005|\u0006|\u0007|\u000b|\u000e|\u000f|\u0010|\u0011|\u0012|\u0013|\u0014|\u0015|\u0016|\u0017|\u0018|\u0019|\u001a|\u001c|\u001d|\u001e|\u001f|\u007f|\u0080|\u0081|\u0082|\u0083|\u0084|\u0085|\u0086|\u0087|\u0088|\u0089|\u008a|\u008b|\u008c|\u008d|\u008e|\u008f|\u0090|\u0091|\u0092|\u0093|\u0094|\u0095|\u0096|\u0097|\u0098|\u0099|\u009a|\u009b|\u009c|\u009d|\u009e|\u009f/g
     );
     if ((typeof define === "object" || typeof define === "function") && (typeof ace !== "object" || ace.prettydiffid === undefined)) {
@@ -2062,5 +2062,5 @@
                 }
             }());
         }
-    } 
+    }
 }());

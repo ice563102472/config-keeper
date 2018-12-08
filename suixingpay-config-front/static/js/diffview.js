@@ -43,34 +43,34 @@ Written by Austin Cheney on 1 Mar 2017
                         .replace(/;$/, "");
                 }
             }
-            options.diffview        = (options.diffview === "inline")
+            options.diffview = (options.diffview === "inline")
                 ? "inline"
                 : "sidebyside";
-            options.diffcomments    = (
+            options.diffcomments = (
                 options.diffcomments === true || options.diffcomments === "true"
             );
             options.diffspaceignore = (
                 options.diffspaceignore === true || options.diffspaceignore === "true"
             );
-            options.quote           = (options.quote === true || options.quote === "true");
-            options.semicolon       = (
+            options.quote = (options.quote === true || options.quote === "true");
+            options.semicolon = (
                 options.semicolon === true || options.semicolon === "true"
             );
-            options.content         = (options.content === true || options.content === "true");
-            options.diffcli         = (options.diffcli === true || options.diffcli === "true");
-            options.context         = (isNaN(options.context) === false)
+            options.content = (options.content === true || options.content === "true");
+            options.diffcli = (options.diffcli === true || options.diffcli === "true");
+            options.context = (isNaN(options.context) === false)
                 ? Number(options.context)
                 : -1;
             if (options.diffcli === true && options.context < 0) {
                 options.context = 2;
             }
         }());
-        var errorout      = 0,
+        var errorout = 0,
             //diffline is a count of lines that are not equal
-            diffline      = 0,
+            diffline = 0,
             //tab is a construct of a standard indentation for code
-            tab           = (function diffview__tab() {
-                var a      = 0,
+            tab = (function diffview__tab() {
+                var a = 0,
                     output = [];
                 if (options.inchar === "") {
                     return "";
@@ -97,26 +97,26 @@ Written by Austin Cheney on 1 Mar 2017
                 ? stringAsLines(options.source)
                 : options.source,
             //array representation of new source
-            newTextArray  = (typeof options.diff === "string")
+            newTextArray = (typeof options.diff === "string")
                 ? stringAsLines(options.diff)
                 : options.diff,
-            opcodes       = [],
-            codeBuild     = function diffview__opcodes() {
-                var table           = {},
-                    one             = (typeof options.source === "string")
+            opcodes = [],
+            codeBuild = function diffview__opcodes() {
+                var table = {},
+                    one = (typeof options.source === "string")
                         ? options.source.split("\n")
                         : options.source,
-                    two             = (typeof options.diff === "string")
+                    two = (typeof options.diff === "string")
                         ? options.diff.split("\n")
                         : options.diff,
-                    lena            = one.length,
-                    lenb            = two.length,
-                    a               = 0,
-                    b               = 0,
-                    c               = 0,
-                    d               = 0,
-                    codes           = [],
-                    fix             = function diffview__opcodes_fix(code) {
+                    lena = one.length,
+                    lenb = two.length,
+                    a = 0,
+                    b = 0,
+                    c = 0,
+                    d = 0,
+                    codes = [],
+                    fix = function diffview__opcodes_fix(code) {
                         var prior = codes[codes.length - 1];
                         if (prior !== undefined) {
                             if (prior[0] === code[0]) {
@@ -136,9 +136,9 @@ Written by Austin Cheney on 1 Mar 2017
                                         prior[0] = "replace";
                                         prior[1] = code[1];
                                         prior[2] = code[2];
-                                        code[0]  = "insert";
-                                        code[1]  = -1;
-                                        code[2]  = -1;
+                                        code[0] = "insert";
+                                        code[1] = -1;
+                                        code[2] = -1;
                                     } else if (code[0] === "delete") {
                                         code[0] = "replace";
                                         code[3] = prior[3];
@@ -155,7 +155,7 @@ Written by Austin Cheney on 1 Mar 2017
                                     prior[0] = "replace";
                                     prior[1] = code[1];
                                     prior[2] = code[1] + 1;
-                                    code[1]  = code[1] + 1;
+                                    code[1] = code[1] + 1;
                                 } else if (code[0] === "replace") {
                                     prior[0] = "replace";
                                     prior[1] = code[1];
@@ -166,18 +166,18 @@ Written by Austin Cheney on 1 Mar 2017
                                 }
                             } else if (prior[0] === "insert" && code[0] === "delete" && code[2] - code[1] === 1) {
                                 prior[4] = prior[4] - 1;
-                                code[0]  = "replace";
-                                code[3]  = prior[4];
-                                code[4]  = prior[4] + 1;
+                                code[0] = "replace";
+                                code[3] = prior[4];
+                                code[4] = prior[4] + 1;
                             } else if (prior[0] === "delete" && prior[2] - prior[1] === 1) {
                                 if (code[4] - code[3] === 1) {
                                     if (code[0] === "replace") {
                                         prior[0] = "replace";
                                         prior[3] = code[3];
                                         prior[4] = code[4];
-                                        code[0]  = "delete";
-                                        code[3]  = -1;
-                                        code[4]  = -1;
+                                        code[0] = "delete";
+                                        code[3] = -1;
+                                        code[4] = -1;
                                     } else if (code[0] === "insert") {
                                         code[0] = "replace";
                                         code[1] = prior[1];
@@ -194,7 +194,7 @@ Written by Austin Cheney on 1 Mar 2017
                                     prior[0] = "replace";
                                     prior[3] = code[3];
                                     prior[4] = code[3] + 1;
-                                    code[3]  = code[3] + 1;
+                                    code[3] = code[3] + 1;
                                 } else if (code[0] === "replace") {
                                     prior[0] = "replace";
                                     prior[3] = code[3];
@@ -205,9 +205,9 @@ Written by Austin Cheney on 1 Mar 2017
                                 }
                             } else if (prior[0] === "delete" && code[0] === "insert" && code[4] - code[3] === 1) {
                                 prior[2] = prior[2] - 1;
-                                code[0]  = "replace";
-                                code[1]  = prior[2];
-                                code[2]  = prior[2] + 1;
+                                code[0] = "replace";
+                                code[1] = prior[2];
+                                code[2] = prior[2] + 1;
                             } else if (prior[0] === "replace") {
                                 if (code[0] === "delete") {
                                     if (one[code[2] - 1] === two[prior[4] - 1]) {
@@ -220,8 +220,8 @@ Written by Austin Cheney on 1 Mar 2017
                                     }
                                     if (one[code[2]] === two[prior[4] - 1]) {
                                         if (prior[2] - prior[1] > 1) {
-                                            prior[2]             = prior[2] - 1;
-                                            prior[4]             = prior[4] - 11;
+                                            prior[2] = prior[2] - 1;
+                                            prior[4] = prior[4] - 11;
                                             table[one[c - 1]][0] = table[one[c - 1]][0] - 1;
                                         }
                                     }
@@ -236,8 +236,8 @@ Written by Austin Cheney on 1 Mar 2017
                                     }
                                     if (one[code[2] - 1] === two[prior[4]]) {
                                         if (prior[4] - prior[3] > 1) {
-                                            prior[2]             = prior[2] - 1;
-                                            prior[4]             = prior[4] - 1;
+                                            prior[2] = prior[2] - 1;
+                                            prior[4] = prior[4] - 1;
                                             table[two[d - 1]][1] = table[two[d - 1]][1] - 1;
                                         }
                                     }
@@ -246,27 +246,27 @@ Written by Austin Cheney on 1 Mar 2017
                         }
                         codes.push(code);
                     },
-                    equality        = function diffview__opcodes_equality() {
+                    equality = function diffview__opcodes_equality() {
                         do {
                             table[one[c]][0] = table[one[c]][0] - 1;
                             table[one[c]][1] = table[one[c]][1] - 1;
-                            c                = c + 1;
-                            d                = d + 1;
+                            c = c + 1;
+                            d = d + 1;
                         } while (c < lena && d < lenb && one[c] === two[d]);
                         fix(["equal", a, c, b, d]);
                         b = d - 1;
                         a = c - 1;
                     },
-                    deletion        = function diffview__opcodes_deletion() {
+                    deletion = function diffview__opcodes_deletion() {
                         do {
                             table[one[c]][0] = table[one[c]][0] - 1;
-                            c                = c + 1;
+                            c = c + 1;
                         } while (c < lena && table[one[c]][1] < 1);
                         fix(["delete", a, c, -1, -1]);
                         a = c - 1;
                         b = d - 1;
                     },
-                    deletionStatic  = function diffview__opcodes_deletionStatic() {
+                    deletionStatic = function diffview__opcodes_deletionStatic() {
                         table[one[a]][0] = table[one[a]][0] - 1;
                         fix([
                             "delete", a, a + 1,
@@ -276,10 +276,10 @@ Written by Austin Cheney on 1 Mar 2017
                         a = c;
                         b = d - 1;
                     },
-                    insertion       = function diffview__opcodes_insertion() {
+                    insertion = function diffview__opcodes_insertion() {
                         do {
                             table[two[d]][1] = table[two[d]][1] - 1;
-                            d                = d + 1;
+                            d = d + 1;
                         } while (d < lenb && table[two[d]][0] < 1);
                         fix(["insert", -1, -1, b, d]);
                         a = c - 1;
@@ -293,22 +293,22 @@ Written by Austin Cheney on 1 Mar 2017
                         a = c - 1;
                         b = d;
                     },
-                    replacement     = function diffview__opcodes_replacement() {
+                    replacement = function diffview__opcodes_replacement() {
                         do {
                             table[one[c]][0] = table[one[c]][0] - 1;
                             table[two[d]][1] = table[two[d]][1] - 1;
-                            c                = c + 1;
-                            d                = d + 1;
+                            c = c + 1;
+                            d = d + 1;
                         } while (c < lena && d < lenb && table[one[c]][1] > 0 && table[two[d]][0] > 0);
                         fix(["replace", a, c, b, d]);
                         a = c - 1;
                         b = d - 1;
                     },
-                    replaceUniques  = function diffview__opcodes_replaceUniques() {
+                    replaceUniques = function diffview__opcodes_replaceUniques() {
                         do {
                             table[one[c]][0] = table[one[c]][0] - 1;
-                            c                = c + 1;
-                            d                = d + 1;
+                            c = c + 1;
+                            d = d + 1;
                         } while (c < lena && d < lenb && table[one[c]][1] < 1 && table[two[d]][0] < 1);
                         fix(["replace", a, c, b, d]);
                         a = c - 1;
@@ -332,7 +332,7 @@ Written by Austin Cheney on 1 Mar 2017
                 // * Second Pass, account for lines from second file
                 // * build the table from the first file
                 lena = one.length;
-                a    = 0;
+                a = 0;
                 do {
                     if (options.diffspaceignore === true) {
                         one[a] = one[a].replace(/\s+/g, "");
@@ -407,30 +407,30 @@ Written by Austin Cheney on 1 Mar 2017
         // of differences after the opcodes generate the other two core pieces of logic
         // are quaranteened into an anonymous function.
         return (function diffview__report() {
-            var a              = 0,
-                i              = 0,
-                node           = ["<div class='diff'>"],
-                data           = (options.diffcli === true)
+            var a = 0,
+                i = 0,
+                node = ["<div class='diff'>"],
+                data = (options.diffcli === true)
                     ? []
                     : [
                         [], [], [], []
                     ],
-                baseStart      = 0,
-                baseEnd        = 0,
-                newStart       = 0,
-                newEnd         = 0,
-                rowcnt         = 0,
-                rowItem        = -1,
-                rcount         = 0,
-                foldcount      = 0,
-                foldstart      = -1,
-                jump           = 0,
-                finaldoc       = "",
-                tabFix         = (tab === "")
+                baseStart = 0,
+                baseEnd = 0,
+                newStart = 0,
+                newEnd = 0,
+                rowcnt = 0,
+                rowItem = -1,
+                rcount = 0,
+                foldcount = 0,
+                foldstart = -1,
+                jump = 0,
+                finaldoc = "",
+                tabFix = (tab === "")
                     ? ""
                     : new RegExp("^((" + tab.replace(/\\/g, "\\") + ")+)"),
-                noTab          = function diffview__report_noTab(str) {
-                    var b      = 0,
+                noTab = function diffview__report_noTab(str) {
+                    var b = 0,
                         strLen = str.length,
                         output = [];
                     for (b = 0; b < strLen; b = b + 1) {
@@ -438,30 +438,30 @@ Written by Austin Cheney on 1 Mar 2017
                     }
                     return output;
                 },
-                htmlfix        = function diffview__report_htmlfix(item) {
+                htmlfix = function diffview__report_htmlfix(item) {
                     return item.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
                 },
-                baseTab        = (tab === "")
+                baseTab = (tab === "")
                     ? []
                     : noTab(baseTextArray),
-                newTab         = (tab === "")
+                newTab = (tab === "")
                     ? []
                     : noTab(newTextArray),
-                opcodesLength  = opcodes.length,
-                change         = "",
-                btest          = false,
-                ntest          = false,
-                repeat         = false,
-                ctest          = true,
-                code           = [],
+                opcodesLength = opcodes.length,
+                change = "",
+                btest = false,
+                ntest = false,
+                repeat = false,
+                ctest = true,
+                code = [],
                 charcompOutput = [],
                 // this is the character comparison logic that performs the 'largest common
                 // subsequence' between two lines of code
-                charcomp       = function diffview__report_charcomp(lineA, lineB) {
-                    var b             = 0,
-                        dataA         = [],
-                        dataB         = [],
-                        cleanedA      = (options.diffcli === true)
+                charcomp = function diffview__report_charcomp(lineA, lineB) {
+                    var b = 0,
+                        dataA = [],
+                        dataB = [],
+                        cleanedA = (options.diffcli === true)
                             ? lineA
                             : lineA
                                 .replace(/&#160;/g, " ")
@@ -471,7 +471,7 @@ Written by Austin Cheney on 1 Mar 2017
                                 .replace(/\$#lt;/g, "<")
                                 .replace(/\$#gt;/g, ">")
                                 .replace(/&amp;/g, "&"),
-                        cleanedB      = (options.diffcli === true)
+                        cleanedB = (options.diffcli === true)
                             ? lineB
                             : lineB
                                 .replace(/&#160;/g, " ")
@@ -482,17 +482,17 @@ Written by Austin Cheney on 1 Mar 2017
                                 .replace(/\$#gt;/g, ">")
                                 .replace(/&amp;/g, "&"),
                         dataMinLength = 0,
-                        currentdiff   = [],
-                        regStart      = (/_pdiffdiff\u005f/g),
-                        regEnd        = (/_epdiffdiff\u005f/g),
-                        strStart      = "_pdiffdiff\u005f",
-                        strEnd        = "_epdiffdiff\u005f",
-                        tabdiff       = (function diffview__report_charcomp_tabdiff() {
-                            var tabMatchA  = "",
-                                tabMatchB  = "",
-                                splitA     = "",
-                                splitB     = "",
-                                analysis   = [],
+                        currentdiff = [],
+                        regStart = (/_pdiffdiff\u005f/g),
+                        regEnd = (/_epdiffdiff\u005f/g),
+                        strStart = "_pdiffdiff\u005f",
+                        strEnd = "_epdiffdiff\u005f",
+                        tabdiff = (function diffview__report_charcomp_tabdiff() {
+                            var tabMatchA = "",
+                                tabMatchB = "",
+                                splitA = "",
+                                splitB = "",
+                                analysis = [],
                                 matchListA = cleanedA.match(tabFix),
                                 matchListB = cleanedB.match(tabFix);
                             if (matchListA === null || matchListB === null || (matchListA[0] === "" && matchListA.length === 1) || (matchListB[0] === "" && matchListB.length === 1)) {
@@ -500,22 +500,22 @@ Written by Austin Cheney on 1 Mar 2017
                             }
                             tabMatchA = matchListA[0];
                             tabMatchB = matchListB[0];
-                            splitA    = cleanedA.split(tabMatchA)[1];
-                            splitB    = cleanedB.split(tabMatchB)[1];
+                            splitA = cleanedA.split(tabMatchA)[1];
+                            splitB = cleanedB.split(tabMatchB)[1];
                             if (tabMatchA.length > tabMatchB.length) {
-                                analysis  = tabMatchA.split(tabMatchB);
+                                analysis = tabMatchA.split(tabMatchB);
                                 tabMatchA = tabMatchB + strStart + analysis[1] + strEnd;
                                 tabMatchB = tabMatchB + strStart + strEnd;
                             } else {
-                                analysis  = tabMatchB.split(tabMatchA);
+                                analysis = tabMatchB.split(tabMatchA);
                                 tabMatchB = tabMatchA + strStart + analysis[1] + strEnd;
                                 tabMatchA = tabMatchA + strStart + strEnd;
                             }
                             return [tabMatchA, tabMatchB, splitA, splitB];
                         }()),
-                        whiteout      = function diffview__report_charcomp_whiteout(whitediff) {
+                        whiteout = function diffview__report_charcomp_whiteout(whitediff) {
                             var spacetest = (/<((em)|(pd))>\u0020+<\/((em)|(pd))>/),
-                                crtest    = (/<((em)|(pd))>\r+<\/((em)|(pd))>/);
+                                crtest = (/<((em)|(pd))>\r+<\/((em)|(pd))>/);
                             if (spacetest.test(whitediff) === true) {
                                 return whitediff;
                             }
@@ -525,26 +525,26 @@ Written by Austin Cheney on 1 Mar 2017
                             return whitediff.replace(/\s+/, "(white space differences)");
                         },
                         //compare is the fuzzy string comparison algorithm
-                        compare       = function diffview__report_charcomp_compare(start) {
-                            var x          = 0,
-                                y          = 0,
-                                max        = Math.max(dataA.length, dataB.length),
-                                store      = [],
-                                sorta      = function diffview__report_charcomp_compare_sorta(a, b) {
+                        compare = function diffview__report_charcomp_compare(start) {
+                            var x = 0,
+                                y = 0,
+                                max = Math.max(dataA.length, dataB.length),
+                                store = [],
+                                sorta = function diffview__report_charcomp_compare_sorta(a, b) {
                                     if (a[1] - a[0] < b[1] - b[0]) {
                                         return 1;
                                     }
                                     return -1;
                                 },
-                                sortb      = function diffview__report_charcomp_compare_sortb(a, b) {
+                                sortb = function diffview__report_charcomp_compare_sortb(a, b) {
                                     if (a[0] + a[1] > b[0] + b[1]) {
                                         return 1;
                                     }
                                     return -1;
                                 },
-                                whitetest  = (/^(\s+)$/),
+                                whitetest = (/^(\s+)$/),
                                 whitespace = false,
-                                wordtest   = false;
+                                wordtest = false;
                             //first gather a list of all matching indexes into an array
                             for (x = start; x < dataMinLength; x = x + 1) {
                                 for (y = start; y < max; y = y + 1) {
@@ -552,13 +552,13 @@ Written by Austin Cheney on 1 Mar 2017
                                         store.push([x, y]);
                                         if (dataA[y] === dataB[x] && dataA[y + 1] === dataB[x + 1] && whitetest.test(dataB[x - 1]) === true) {
                                             wordtest = true;
-                                            store    = [
+                                            store = [
                                                 [x, y]
                                             ];
                                         }
                                         if (dataA[x] === dataB[y] && dataA[x + 1] === dataB[y + 1] && whitetest.test(dataB[y - 1]) === true) {
                                             wordtest = true;
-                                            store    = [
+                                            store = [
                                                 [x, y]
                                             ];
                                         }
@@ -651,8 +651,8 @@ Written by Austin Cheney on 1 Mar 2017
                         ];
                     }
                     //turn the pruned input into arrays
-                    dataA         = cleanedA.split("");
-                    dataB         = cleanedB.split("");
+                    dataA = cleanedA.split("");
+                    dataB = cleanedB.split("");
                     //the length of the shortest array
                     dataMinLength = Math.min(dataA.length, dataB.length);
                     for (b = 0; b < dataMinLength; b = b + 1) {
@@ -763,7 +763,7 @@ Written by Austin Cheney on 1 Mar 2017
                             // shortest length
                             dataMinLength = Math.min(dataA.length, dataB.length);
                             //assign the incrementer to the end of the longer difference
-                            b             = currentdiff[1];
+                            b = currentdiff[1];
                         }
                     }
                     // if one array is longer than the other and not identified as different then
@@ -772,13 +772,13 @@ Written by Austin Cheney on 1 Mar 2017
                         dataB.push(strStart + strEnd);
                         dataA[dataB.length - 1] = strStart + dataA[dataB.length - 1];
                         dataA[dataA.length - 1] = dataA[dataA.length - 1] + strEnd;
-                        errorout                = errorout + 1;
+                        errorout = errorout + 1;
                     }
                     if (dataB.length > dataA.length && dataA[dataA.length - 1] !== undefined && dataA[dataA.length - 1].indexOf(strEnd) < 1) {
                         dataA.push(strStart + strEnd);
                         dataB[dataA.length - 1] = strStart + dataB[dataA.length - 1];
                         dataB[dataB.length - 1] = dataB[dataB.length - 1] + strEnd;
-                        errorout                = errorout + 1;
+                        errorout = errorout + 1;
                     }
                     // options.diffcli output doesn't need XML protected characters to be escaped
                     // because its output is the command line
@@ -834,14 +834,14 @@ Written by Austin Cheney on 1 Mar 2017
                 foldstart = 0;
             }
             for (a = 0; a < opcodesLength; a = a + 1) {
-                code      = opcodes[a];
-                change    = code[0];
+                code = opcodes[a];
+                change = code[0];
                 baseStart = code[1];
-                baseEnd   = code[2];
-                newStart  = code[3];
-                newEnd    = code[4];
-                rowcnt    = Math.max(baseEnd - baseStart, newEnd - newStart);
-                ctest     = true;
+                baseEnd = code[2];
+                newStart = code[3];
+                newEnd = code[4];
+                rowcnt = Math.max(baseEnd - baseStart, newEnd - newStart);
+                ctest = true;
 
                 if (foldstart > -1 && options.diffcli === false) {
                     data[0][foldstart] = data[0][foldstart].replace("xxx", foldcount);
@@ -958,7 +958,7 @@ Written by Austin Cheney on 1 Mar 2017
                         if (((change === "insert" && foldcount + newStart === newEnd) || (change !== "insert" && foldcount + baseStart === baseEnd)) && baseTextArray[baseStart + foldcount] !== undefined && options.context > 0 && a < opcodesLength - 1 && opcodes[a + 1][0] === "equal") {
                             foldcount = 0;
                             baseStart = opcodes[a + 1][1];
-                            baseEnd   = opcodes[a + 1][2] - baseStart;
+                            baseEnd = opcodes[a + 1][2] - baseStart;
                             do {
                                 if (options.api === "dom") {
                                     data.push("<p>");
@@ -972,13 +972,13 @@ Written by Austin Cheney on 1 Mar 2017
                         }
                         if (btest === true) {
                             baseStart = baseStart + 1;
-                            btest     = false;
+                            btest = false;
                         } else if (ntest === true) {
                             newStart = newStart + 1;
-                            ntest    = false;
+                            ntest = false;
                         } else {
                             baseStart = baseStart + 1;
-                            newStart  = newStart + 1;
+                            newStart = newStart + 1;
                         }
                     }
                 } else {
@@ -986,13 +986,13 @@ Written by Austin Cheney on 1 Mar 2017
                         //apply options.context collapsing for the output, if needed
                         if (options.context > -1 && opcodes.length > 1 && ((a > 0 && i === options.context) || (a === 0 && i === 0)) && change === "equal") {
                             ctest = false;
-                            jump  = rowcnt - ((a === 0
+                            jump = rowcnt - ((a === 0
                                 ? 1
                                 : 2) * options.context);
                             if (jump > 1) {
                                 baseStart = baseStart + jump;
-                                newStart  = newStart + jump;
-                                i         = i + (jump - 1);
+                                newStart = newStart + jump;
+                                i = i + (jump - 1);
                                 if (options.diffcli === true) {
                                     data[5].push([baseStart, newStart]);
                                 } else {
@@ -1022,7 +1022,7 @@ Written by Austin Cheney on 1 Mar 2017
                         }
                         if (options.diffview === "inline") {
                             if (options.diffspaceignore === true && change === "replace" && baseTextArray[baseStart].replace(/\s+/g, "") === newTextArray[newStart].replace(/\s+/g, "")) {
-                                change   = "equal";
+                                change = "equal";
                                 errorout = errorout - 1;
                             }
                             if (options.context < 0 && rowItem < a) {
@@ -1152,13 +1152,13 @@ Written by Austin Cheney on 1 Mar 2017
                             }
                             if (btest === true) {
                                 baseStart = baseStart + 1;
-                                btest     = false;
+                                btest = false;
                             } else if (ntest === true) {
                                 newStart = newStart + 1;
-                                ntest    = false;
+                                ntest = false;
                             } else {
                                 baseStart = baseStart + 1;
-                                newStart  = newStart + 1;
+                                newStart = newStart + 1;
                             }
                         } else {
                             if (btest === false && ntest === false && typeof baseTextArray[baseStart] === "string" && typeof newTextArray[newStart] === "string") {
@@ -1284,7 +1284,7 @@ Written by Austin Cheney on 1 Mar 2017
                                     data[2].push("<li class=\"empty\">&#10;</li>");
                                     data[3].push("<li class=\"empty\"></li>");
                                 }
-                                btest     = false;
+                                btest = false;
                                 baseStart = baseStart + 1;
                             } else if (ntest === true || (typeof baseTextArray[baseStart] !== "string" && typeof newTextArray[newStart] === "string")) {
                                 if (newStart !== -1 && newStart !== Number(data[2][data[2].length - 1].substring(
@@ -1309,7 +1309,7 @@ Written by Austin Cheney on 1 Mar 2017
                                     data[3].push(newTextArray[newStart]);
                                     data[3].push("&#10;</li>");
                                 }
-                                ntest    = false;
+                                ntest = false;
                                 newStart = newStart + 1;
                             }
                         }
@@ -1350,10 +1350,10 @@ Written by Austin Cheney on 1 Mar 2017
             //     "<p class=\"author\">Diff view written by <a href=\"http://prettydiff.com/\">Pr" +
             //     "etty Diff</a>.</p></div>"
             // );
-            baseTab  = (errorout === 1)
+            baseTab = (errorout === 1)
                 ? ""
                 : "s";
-            newTab   = (diffline === 1)
+            newTab = (diffline === 1)
                 ? ""
                 : "s";
             // finaldoc = "<p><strong>Number of differences:</strong> <em>" + (
